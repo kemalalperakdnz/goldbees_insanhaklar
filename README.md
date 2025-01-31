@@ -1,6 +1,6 @@
 # goldbees_insanhaklar
 
-📝 Detaylı Proje Açıklaması
+📝 Proje Açıklaması
 İnsan Hakları Projesi, toplumun her kesiminden bireyin insan hakları konusunda bilinçlenmesini ve farkındalık kazanmasını hedefleyen kapsamlı bir dijital platformdur. Modern web teknolojileri kullanılarak geliştirilen bu proje, insan haklarının evrensel değerlerini dijital dünyaya taşımaktadır.
 
 🎯 Projenin Amacı ve Vizyonu
