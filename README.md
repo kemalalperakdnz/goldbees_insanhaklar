@@ -22,11 +22,11 @@ Projemizin tasarımı, "herkes için erişilebilirlik" prensibi üzerine kurulmu
 
 ♿ Erişilebilirlik Yaklaşımı
 Platformumuz, farklı kullanıcı ihtiyaçlarını göz önünde bulundurarak tasarlanmıştır:
-
 Görme engelli kullanıcılar için ekran okuyucu uyumluluğu
 İşitme engelli kullanıcılar için görsel içerik zenginliği
 Farklı öğrenme stillerine uygun içerik çeşitliliği
 Özelleştirilebilir görüntüleme seçenekleri
+
 🤝 Hedef Kitle
 İnsan hakları konusunda bilgi edinmek isteyen bireyler
 Eğitimciler ve öğrenciler
@@ -34,15 +34,16 @@ Sivil toplum kuruluşları
 Hak savunucuları
 Dezavantajlı gruplar ve yakınları
 Konu hakkında araştırma yapan akademisyenler
+
 📈 Gelecek Hedefleri
 İçeriklerin sürekli güncellenmesi ve zenginleştirilmesi
 Kullanıcı etkileşiminin artırılması
 Yeni tematik alanların eklenmesi
 Mobil uygulama geliştirme
 Çoklu dil desteği
+
 💫 Projenin Etkisi
 Bu platform, insan hakları konusunda:
-
 Toplumsal farkındalığın artmasına
 Bilgiye kolay erişimin sağlanmasına
 Dezavantajlı grupların seslerinin duyulmasına
