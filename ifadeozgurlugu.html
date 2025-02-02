@@ -1,0 +1,1027 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İfade Özgürlüğü </title>
+    <link rel="icon" href="images/ikon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        .blog-header {
+            background: #d87333;
+            padding: 100px 0 80px;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        .blog-post {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline-item {
+            padding: 20px;
+            border-left: 3px solid #d87333;
+            margin-bottom: 20px;
+            position: relative;
+            background: #f8f9fa;
+        }
+            .timeline-item::before {
+                content: '';
+                position: absolute;
+                left: -10px;
+                top: 25px;
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                background: #d87333;
+            }
+        .quote-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 5px solid #d87333;
+        }
+        .quotes-section {
+            padding: 2rem 0;
+        }
+        .quote-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+            .quote-card:hover {
+                transform: translateY(-5px);
+            }
+        .quote-icon {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background: #d87333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+            .quote-icon i {
+                color: white;
+                font-size: 1.2rem;
+            }
+        .quote-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+        .quote-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: top center;
+            border: 2px solid #d87333;
+            padding: 2px;
+        }
+        .quote-author strong {
+            display: block;
+            color: #d87333;
+        }
+        .quote-author small {
+            color: #6c757d;
+        }
+        /* Genel stil ayarları */
+        .grafik {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .grafik .container {
+            width: 90%;
+            max-width: 1000px;
+            padding: 20px;
+            margin-bottom: 120px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .grafik h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .grafik .chart {
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: 400px; /* Grafiği daha kompakt yapıyoruz */
+        }
+
+        .grafik h2 {
+            color: #34495e;
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .grafik canvas {
+            display: block;
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        /* Responsive tasarım */
+        @media (max-width: 768px) {
+            .grafik h1 {
+                font-size: 2rem;
+            }
+
+            .grafik .container {
+                width: 95%;
+                padding: 15px;
+            }
+
+            .grafik .chart {
+                height: 350px; /* Küçük ekranlar için grafik boyutunu küçültüyoruz */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-balance-scale me-2"></i>İnsan Hakları</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="bildirge.html"><i class="fas fa-scroll me-1"></i>İnsan Hakları Bildirgesi</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-hands-helping me-1"></i>İnsan Hakları
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="kadın-hakları.html"><i class="fas fa-female me-2"></i>Kadın Hakları</a></li>
+                            <li><a class="dropdown-item" href="çocukhakları.html"><i class="fas fa-child me-2"></i>Çocuk Hakları</a></li>
+                            <li><a class="dropdown-item" href="ifadeozgurlugu.html"><i class="fas fa-comments me-2"></i>İfade Özgürlüğü</a></li>
+                            <li><a class="dropdown-item" href="Mülteci-hakları.html"><i class="fas fa-globe me-2"></i>Mülteci Hakları</a></li>
+                            <li><a class="dropdown-item" href="savas-sivil-haklar.html"><i class="fas fa-shield-alt me-2"></i>Savaş ve Sivil Haklar</a></li>
+                            <li><a class="dropdown-item" href="adaletvehukuk.html"><i class="fas fa-gavel me-2"></i>Adalet ve Hukuk</a></li>
+                            <li><a class="dropdown-item" href="engellihakları.html"><i class="fas fa-wheelchair me-2"></i>Engelli Hakları</a></li>
+                            <li><a class="dropdown-item" href="Eğitim ve sağlık.html"><i class="fas fa-graduation-cap me-2"></i>Eğitim ve Sağlık</a></li>
+                            <li><a class="dropdown-item" href="baris-uzlasi.html"><i class="fas fa-dove me-2"></i>Barış ve Uzlaşı</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><i class="fas fa-info-circle me-1"></i>Hakkımızda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i>İletişim</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Header -->
+    <header class="blog-header">
+        <div class="container">
+            <h1 class="display-3"><i class="fas fa-comments me-2"></i>İfade Özgürlüğü</h1>
+            <p class="lead">Fikirlerin önemli. Ne düşündüğünü söylemek, bilgi paylaşmak ve dünyanın daha iyi bir yer olmasını istemek senin hakkın. Ayrıca, hakların gereğince, yönetenlerle aynı fikirde olabilir veya olmayabilir ve bu fikirlerini barışçıl protestolarda ifade edebilirsin. Bu hakların korku duymadan ve hukuka aykırı müdahalelere uğramadan kullanılabilmesi, insanların adalete erişebildiği ve insan haklarından faydalanabildiği açık ve adil toplumlarda temel önemdedir."İfade özgürlüğü" çoğulcu ve anayasal demokrasilerin temel taşlarındandır. Farklı tanımlara yer verilmekle birlikte genel kabule göre, ifade özgürlüğü; insanın serbestçe haber, bilgi ve başkalarının fikirlerine ulaşabilmesi, edindiği fikir ve kanaatlerden dolayı kınanmaması ve bunları tek başına veya başkalarıyla birlikte meşru yöntemlerle dışa vurabilme imkan ve serbestisidir. İfade özgürlüğü, sadece “düşünce ve kanaat sahibi olma”yı değil, “düşünce ve kanaatlere ulaşma” ve “düşünce ve kanaatleri açıklama, yayma” özgürlüklerini de kapsamaktadır. Ayrıca ifade tarzları, biçimleri ve araçları da bu özgürlük kapsamında değerlendirilmektedir. </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <div class="row">
+            <!-- Blog Content -->
+            <div class="col-lg-8">
+                <!-- Giriş Bölümü -->
+                <article class="blog-post mb-5">
+                    <h2 class="mb-4">İfade Özgürlüğü: </h2>
+                    <div class="row mb-4">
+                        <div class="col-md-8">
+                            <p class="lead">
+                                Avrupa İnsan Hakları Sözleşmesi’nin (AİHS) 10. maddesi ifade
+                                özgürlüğünü düzenlemektedir. Madde metni şöyledir:
+                                “1. Herkes ifade özgürlüğü hakkına sahiptir. Bu hak, kamu makamları
+                                tarafından müdahale edilmeksizin ve ulusal sınırlar dikkate alınmaksızın, görüş
+                                sahibi olma, bilgi ve düşünceleri edinme ve yayma özgürlüğünü içerir. Bu Madde
+                                devletlerin yayıncılığı, televizyon veya sinema işletmelerini izin alma koşuluna
+                                bağlamasını engellemez.
+                                2. Bu özgürlüklerin kullanımı, beraberinde ödev ve sorumlukları
+                                getirdiği için, ulusal güvenlik, toprak bütünlüğü veya kamu emniyeti
+                                menfaatlerine, düzensizliğin veya suç işlenmesinin önlenmesi, sağlık
+                                veya ahlakın korunması, başkalarının şöhret veya haklarının korunması,
+                                gizli olarak elde edilen bilgilerin açıklanmasının önlenmesi veya yargı
+                                organlarının otorite ve tarafsızlığının sürdürülmesi için yasa tarafından
+                                öngörülen ve demokratik bir toplumda gerekli olan formalitelere,
+                                koşullara, kısıtlamalara veya cezalara tabi tutulabilir.
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <img src="images/ifade1.png" alt="İfade" class="img-fluid rounded shadow-sm">
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <h3 class="h4">İfade Özgürlüğünün Temel Unsurları</h3>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Düşünce Özgürlüğü:</strong> Bireylerin herhangi bir konuda düşünce üretme ve bu düşünceleri benimseme hakkı.
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Bilgi Edinme Hakkı:</strong> Bilgiye erişim ve bilgiyi paylaşma özgürlüğü.
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Eleştiri Hakkı:</strong> Devlet, kurumlar veya bireyler hakkında eleştiride bulunma özgürlüğü.
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Sanatsal ve Bilimsel İfade:</strong> Sanat, edebiyat ve bilim alanlarında özgürce üretim yapma hakkı.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4>Dünyada Basın Özgürlüğü</h4>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2">
+                                            <i class="fas fa-globe text-primary me-2"></i>
+                                            <strong>Norveç:</strong> Gazetecilere yönelik koruma ve ifade özgürlüğü konusunda örnek bir ülke.
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-handshake text-success me-2"></i>
+                                            <strong>Danimarka:</strong> Medya özgürlüğü ve gazetecilerin güvenliği konusunda yüksek standartlara sahip.
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-balance-scale text-info me-2"></i>
+                                            <strong>İsveç:</strong> Basın özgürlüğü yasasını kabul eden ilk ülke.
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-users text-warning me-2"></i>
+                                            <strong>Çin:</strong> Hükümet bilgi akışını sıkı kontrol altında tutuyor.(172. sırada)
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-heart text-danger me-2"></i>
+                                            <strong>Rusya:</strong> Ukrayna savaşı sırasında medya üzerindeki baskı arttı.
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-university text-primary me-2"></i>
+                                            <strong>Estonya:</strong> Basın özgürlüğü yasal ve siyasi düzeyde garanti altında.
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-hands-helping text-success me-2"></i>
+                                            <strong>Filistin:</strong> İsrail bombardımanları nedeniyle 100'den fazla Filistinli gazeteci öldürüldü.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article> 
+
+                <!-- grafik-->
+                <div class="grafik">
+                    <div class="container mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="text-center mb-4">Ülkelere Göre İfade Özgürlüğü (2023)</h3>
+                                <canvas id="chartFreedomOfExpression"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>       
+
+                <!-- Dünya'da Önemli Süreçler -->
+                <article class="blog-post mb-5">
+                    <h2 class="mb-4">Dünya'da Önemli Süreçler</h2>
+
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="images/insanveyurttashaklari.jpeg" alt="İnsan ve Yurttaş" class="img-fluid rounded mb-3">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>1789 Fransız İnsan ve Yurttaş Hakları Bildirgesi</h3>
+                                    <p class="text-muted">1990-1994</p>
+                                    <p>Modern demokrasilerin temelini atarak ifade özgürlüğünü evrensel bir değer haline getirdi.</p>
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h5>Anahtar Bilgiler</h5>
+                                            <ul>
+                                                <li>Madde 11: "Düşüncelerin ve fikirlerin serbestçe iletilmesi, insanın en değerli haklarından biridir."</li>
+                                                <li>İfade özgürlüğü, modern anlamda ilk kez temel hak olarak tanımlandı.</li>
+                                                <li>Diğer ülke anayasalarına ve insan hakları belgelerine ilham kaynağı oldu.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="images/EleanorRoosevelt.jpeg" alt="Eleanor Roosevelt" class="img-fluid rounded mb-3">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>1948 İnsan Hakları Evrensel Beyannamesi</h3>
+                                    <p class="text-muted">1998</p>
+                                    <p>Eleanor Roosevelt bu bildiriyi "Bütün insanlık için bir "Magna Carta (Magna Karta)" olarak tanımlamıştır.</p>
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h5>Beyannamenin Getirileri</h5>
+                                            <ul>
+                                                <li>Birleşmiş Milletler tarafından kabul edildi.</li>
+                                                <li>Madde 19: İfade özgürlüğü evrensel bir insan hakkı olarak tanındı.</li>
+                                                <li>Uluslararası insan hakları hukukunun temeli atıldı.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="images/Kolombiya Barış Süreci.jpeg" alt="Kolombiya Barış Süreci" class="img-fluid rounded mb-3">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>1989 Berlin Duvarı’nın Yıkılışı</h3>
+                                    <p class="text-muted">2016</p>
+                                    <p> "Utanç duvarı" (Schandmauer) olarak da anılan ve Batı Berlin'i abluka altına alan bu betondan sınır, 9 Kasım 1989'da Doğu Almanya'nın, isteyen vatandaşların Batı'ya gidebileceğini açıklamasının ardından tüm tesisleriyle birlikte yıkıldı.</p>
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h5>Yıkımın Kazanımları</h5>
+                                            <ul>
+                                                <li>Soğuk Savaş’ın sona ermesiyle Doğu Bloku’nda demokratikleşme başladı.</li>
+                                                <li>Totaliter rejimlerin yerini demokratik yönetimler aldı.</li>
+                                                <li>Doğu Avrupa ülkelerinde ifade ve basın özgürlüğü artış gösterdi.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="timeline-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="images/arapbahari.jpeg" alt="Arap Baharı" class="img-fluid rounded mb-3">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Arap Baharı (2010-2012)</h3>
+                                    <p class="text-muted">2016</p>
+                                    <p>
+                                        Arap Baharı; Arap coğrafyasında yer alan Tunus’ta başlayan ve buradan hareketle birçok Arap ülkesini etkisi altına alarak, iktidarı değiştirmeye yönelik olarak
+                                        gerçekleştirilen siyasi, silahlı, protestolu, bölgesel ve toplumsal bir halk hareketidir.
+                                    </p>
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h5>Baharın Gelişimi</h5>
+                                            <ul>
+                                                <li>Tunus’ta başlayan halk ayaklanmaları, Ortadoğu ve Kuzey Afrika’ya yayıldı.</li>
+                                                <li>Tunus ve Mısır’da diktatörlükler devrildi, ancak bazı ülkelerde iç savaşlar başladı.</li>
+                                                <li>Sosyal medya, ifade özgürlüğü ve örgütlenme aracı olarak kullanıldı.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Önemli Kişilerin Sözleri -->
+                <div class="quotes-section my-5">
+                    <h3 class="text-center mb-4">İfade Özgürlüğü Üzerine Söylenmiş Sözler</h3>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Söylediklerinize katılmıyorum, ama söyleme hakkınızı ölümüne savunurum.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/Voltaire.jpeg" alt="Voltaire" class="author-img">
+                                        <div>
+                                            <strong>Voltaire</strong>
+                                            <small class="d-block">Fransız Yazar ve Filozof</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text"> Bir fikri susturursak, o fikir doğru olabilir ve biz yanılıyor olabiliriz.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/Mill.jpeg" alt="John Stuart Mill" class="author-img">
+                                        <div>
+                                            <strong>John Stuart Mill</strong>
+                                            <small class="d-block">İngiliz filozof, Ekonomist ve Politikacı</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Konuşmak, insanın en güçlü silahıdır.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/Nelson.jpeg" alt="Nelson Mandela" class="author-img">
+                                        <div>
+                                            <strong>Nelson Mandela</strong>
+                                            <small class="d-block">Eski Güney Afrika Devlet Başkanı</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Düşüncelerini özgürce ifade edemeyen bir toplum, asla özgür olamaz.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/MahatmaGandhi.jpeg" alt="Mahatma Gandhi" class="author-img">
+                                        <div>
+                                            <strong>Mahatma Gandhi</strong>
+                                            <small class="d-block">Hindistan'ın Ruhani Lideri</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Basın, milletin müşterek sesidir. Bir milleti aydınlatma ve irşatta, bir millete muhtaç olduğu fikrî gıdayı vermekte, hulâsa bir milletin hedefi saadet olan müşterek bir istikamette yürümesini teminde, basın başlı başına bir kuvvet, bir mektep, bir rehberdir.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/Atatürk1.jpeg" alt="Mustafa Kemal ATATÜRK" class="author-img">
+                                        <div>
+                                            <strong>Mustafa Kemal ATATÜRK </strong>
+                                            <small class="d-block">Türkiye Cumhuriyeti'nin Kurucusu</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Türkiye'de Barış Çalışmaları -->
+                <article class="blog-post mb-5">
+                    <h2 class="mb-4">Türkiye'de İfade Özgürlüğü Çalışmaları</h2>
+
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="images/Anayasa24.jpeg" alt="1924 Anayasası" class="img-fluid rounded mb-3">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Cumhuriyet Dönemi</h3>
+                                    <p>Türkiye Cumhuriyeti’nin kuruluşundan itibaren ifade özgürlüğü, demokratikleşme sürecinin temel unsurlarından biri olmuştur.</p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h4 class="h5">Önemli Antlaşmalar</h4>
+                                            <ul>
+                                                <li>
+                                                    <strong>1924 Anayasası</strong>
+                                                    <ul>
+                                                        <li>Basın ve ifade özgürlüğünün temelleri</li>
+                                                        <li>Belirli sınırlandırmalar</li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <strong>1961 ve 1982 Anayasaları</strong>
+                                                    <ul>
+                                                        <li>Temel hak ve özgürlüklerin korunması</li>
+                                                        <li>Kamu düzeni ve milli güvenlik çerçevesinde sınırlandırmalar</li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <strong>Avrupa İnsan Hakları Sözleşmesi (AİHS) ve Türkiye</strong>
+                                                    <ul>
+                                                        <li>Avrupa Konseyi üyeliği (1949)</li>
+                                                        <li>AİHS’e taraf olma (1954)</li>
+                                                        <li>AİHM kararlarının etkisi</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h4 class="h5">Bölgesel ve Uluslararası İşbirlikleri</h4>
+                                            <ul>
+                                                <li>
+                                                    <strong>Avrupa Konseyi ve Türkiye</strong>
+                                                    <ul>
+                                                        <li>Demokrasi ve insan hakları reformları</li>
+                                                        <li>Basın özgürlüğü projeleri</li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <strong>Birleşmiş Milletler (BM) Çalışmaları</strong>
+                                                    <ul>
+                                                        <li>Türkiye’de insan hakları raporları</li>
+                                                        <li>Eğitim programları</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="images/ifadeozgurlugucalismalari.jpg" alt="İfade Özgürlüğü Çalışmaları" class="img-fluid rounded mb-3">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Modern Dönem İfade Özgürlüğü Çalışmaları</h3>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h4 class="h5">Akademik Çalışmalar</h4>
+                                            <ul>
+                                                <li>
+                                                    Araştırma Merkezleri ve Enstitüler
+                                                    <ul>
+                                                        <li>Üniversitelerde insan hakları ve medya çalışmaları</li>
+                                                        <li>Hukuk fakültelerindeki araştırmalar</li>
+                                                        <li>Akademik yayınlar</li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    Konferans ve sempozyumlar
+                                                    <ul>
+                                                        <li>Ulusal buluşmalar</li>
+                                                        <li>Hukuk ve medya alanında uzman panelleri</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h4 class="h5">Sivil Toplum Faaliyetleri</h4>
+                                            <ul>
+                                                <li>
+                                                    Eğitim ve Farkındalık Programları
+                                                    <ul>
+                                                        <li>Okullarda medya okuryazarlığı dersleri</li>
+                                                        <li>Hukuki destek ve bilinçlendirme seminerleri</li>
+                                                        <li>Genç gazeteciler ve aktivistler için kamplar</li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    Kültürlerarası Etkinlikler
+                                                    <ul>
+                                                        <li>Belgesel gösterimleri ve film festivalleri</li>
+                                                        <li>Tiyatro ve sanat projeleri ile ifade özgürlüğünü teşvik etme</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- İlgili Hakkın Geleceği -->
+                <article class="blog-post mb-5">
+                    <h2 class="mb-4">İfade Özgürlüğünün Yarını: Yeni Yaklaşımlar</h2>
+
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <img src="images\ÖzgürlüğünGeleceği.jpeg" alt="Özgürlüğün Geleceği" class="img-fluid rounded mb-3">
+                            <div class="alert alert-info">
+                                <h4 class="alert-heading">Sürdürülebilir Öneriler</h4>
+                                <p>Modern dünyada barışı korumak ve geliştirmek için yeni yaklaşımlar:</p>
+                                <ul class="mb-0">
+                                    <li>
+                                        Yasal Reformlar
+                                        <ul>
+                                            <li>İfade özgürlüğünü kısıtlayan yasaların gözden geçirilmesi</li>
+                                            <li>Uluslararası standartlara uyum sağlanması</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Medya ve Dijital Özgürlükler
+                                        <ul>
+                                            <li>İnternet erişiminin özgürleştirilmesi</li>
+                                            <li>Dijital hakların güvence altına alınması</li>
+                                            <li>Bağımsız medya kuruluşlarının desteklenmesi</li>
+                                            <li>Gazetecilerin korunması</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h4>Film Önerisi: "V For Vandetta"</h4>
+                                    <img src="images/Vfor.jpeg" alt="V For Vandetta" class="img-fluid rounded mb-3">
+                                    <p><strong>Tür:</strong>  Aksiyon, Bilim Kurgu</p>
+                                    <p><strong>Özet:</strong> V,  2020 yılında ve İngiltere’de geçiyor. Ülke, son derece baskıcı bir toplum düzenini yaşamaktadır. Türlü yasaklar ve engellerle idare edilen halk, şiddet yanlısı bir konuma gelmiştir. Bu kargaşanın orta yerinde görünen gizemli V, belaya bulaşmış masum bir kadın olan Evey’i kurtarır. Ancak bu kurtarış, tam da ulusun kurtuluşunu temsil eder çünkü onun davranışı aslında toplumun uyanışını tetikleyen ve başkaldırıyı başlatan unsurdur. Tam da bu sebeple artık insanlık adına bir ayaklanma zamanıdır. Alan Moore’un romanından uyarlanan film, son derece epik bir hikayedir.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="position-sticky" style="top: 2rem;">
+                    <!-- Önemli Kaynaklar -->
+                    <div class="card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="h5 mb-0"><i class="fas fa-book me-2"></i>Önemli Kaynaklar</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <a href="https://ifade.org.tr/" class="text-decoration-none">
+                                        <i class="fas fa-external-link-alt me-2"></i>İfade Özgürlüğü Derneği
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="https://rsf.org/en/methodology-used-compiling-world-press-freedom-index-2024" class="text-decoration-none">
+                                        <i class="fas fa-external-link-alt me-2"></i>Sınır Tanımayan Gazeteciler
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.anayasa.gov.tr/" class="text-decoration-none">
+                                        <i class="fas fa-external-link-alt me-2"></i>Anayasa
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- İstatistikler -->
+                    <div class="card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="h5 mb-0"><i class="fas fa-chart-bar me-2"></i>Barış İstatistikleri</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="list-group">
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">1</span><i class="fas fa-globe text-primary"></i> Norveç </span>
+                                            <span class="badge bg-success">91.89</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">2</span><i class="fas fa-heart text-danger"></i> Danimarka</span>
+                                            <span class="badge bg-success">89.6</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">3</span><i class="fas fa-dove text-info"></i> İsveç</span>
+                                            <span class="badge bg-success">88.32</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">4</span><i class="fas fa-balance-scale"></i>Hollanda</span>
+                                            <span class="badge bg-success">87.73</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">5</span><i class="fas fa-university"></i> Finlandiya</span>
+                                            <span class="badge bg-success">86.55</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">6</span><i class="fas fa-handshake"></i> Estonya</span>
+                                            <span class="badge bg-success">86.44</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">7</span><i class="fas fa-users"></i> Portekiz</span>
+                                            <span class="badge bg-success">85.9</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">8</span><i class="fas fa-shield-alt"></i> İrlanda</span>
+                                            <span class="badge bg-success">85.59</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">9</span><i class="fas fa-hands-helping"></i> İsviçre</span>
+                                            <span class="badge bg-success">84.01</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">10</span><i class="fas fa-graduation-cap"></i> Almanya</span>
+                                            <span class="badge bg-success">83.84</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="list-group">
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">11</span><i class="fas fa-mountain"></i> Lüksemburg</span>
+                                            <span class="badge bg-success">83.8</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">12</span><i class="fas fa-leaf"></i> Letonya</span>
+                                            <span class="badge bg-success">82.9</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">13</span><i class="fas fa-sun"></i> Litvanya</span>
+                                            <span class="badge bg-success">81.73</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">14</span><i class="fas fa-tree"></i> Kanada</span>
+                                            <span class="badge bg-success">81.7</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">15</span><i class="fas fa-star"></i> Lithenştayn</span>
+                                            <span class="badge bg-success">81.52</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">16</span><i class="fas fa-flag"></i> Belçika</span>
+                                            <span class="badge bg-success">81.49</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">17</span><i class="fas fa-chess-rook"></i> Çekya</span>
+                                            <span class="badge bg-success">80.14</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">18</span><i class="fas fa-landmark"></i> İzlanda</span>
+                                            <span class="badge bg-success">80.13</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">19</span><i class="fas fa-monument"></i> Yeni Zelanda</span>
+                                            <span class="badge bg-success">79.72</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center bg-light border-2 border-primary">
+                                            <span class="fw-bold"><span class="badge bg-primary me-2">158</span><i class="fas fa-star-and-crescent text-danger"></i> Türkiye</span>
+                                            <span class="badge bg-primary">31.6</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="alert alert-info mt-3">
+                                <i class="fas fa-info-circle me-2"></i>
+                                <small>Not: Her ülke veya bölgenin puanı, basın özgürlüğü durumunu tüm karmaşıklığıyla yansıtan beş bağlamsal gösterge kullanılarak değerlendiriliyor: siyasi bağlam, yasal çerçeve, ekonomik bağlam, sosyokültürel bağlam ve güvenlik. Küresel puan baz alınmıştır.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>    
+            </div>
+        </div>
+
+    </main>
+    <!-- Erişilebilirlik Butonu ve Menüsü -->
+    <div class="accessibility-button" id="accessibilityBtn">
+        <i class="fas fa-universal-access"></i>
+    </div>
+
+    <div class="accessibility-menu" id="accessibilityMenu">
+        <div class="menu-grid">
+            <div class="menu-item" id="fontSizeBtn">
+                <i class="fas fa-text-height"></i>
+                <span>Büyük Metin</span>
+            </div>
+            <div class="menu-item" id="contrastBtn">
+                <i class="fas fa-adjust"></i>
+                <span>Kontrast</span>
+            </div>
+            <div class="menu-item" id="dyslexiaBtn">
+                <i class="fas fa-font"></i>
+                <span>Disleksi Dostu</span>
+            </div>
+            <div class="menu-item" id="lineHeightBtn">
+                <i class="fas fa-arrows-alt-v"></i>
+                <span>Satır Yüksekliği</span>
+            </div>
+            <div class="menu-item" id="alignLeftBtn">
+                <i class="fas fa-align-left"></i>
+                <span>Sola Hizala</span>
+            </div>
+            <div class="menu-item" id="alignCenterBtn">
+                <i class="fas fa-align-center"></i>
+                <span>Ortala</span>
+            </div>
+            <div class="menu-item" id="alignRightBtn">
+                <i class="fas fa-align-right"></i>
+                <span>Sağa Hizala</span>
+            </div>
+            <div class="menu-item" id="alignJustifyBtn">
+                <i class="fas fa-align-justify"></i>
+                <span>İki Yana Yasla</span>
+            </div>
+            <div class="menu-item" id="readingBtn">
+                <i class="fas fa-book-reader"></i>
+                <span>Metin Okuma</span>
+            </div>
+            <div class="menu-item" id="cursorBtn">
+                <i class="fas fa-mouse-pointer"></i>
+                <span>İmleç</span>
+            </div>
+            <div class="menu-item" id="animationBtn">
+                <i class="fas fa-film"></i>
+                <span>Animasyonları Durdur</span>
+            </div>
+            <div class="menu-item" id="resetBtn">
+                <i class="fas fa-undo"></i>
+                <span>Sıfırla</span>
+            </div>
+    </div>
+</div>
+
+<!-- Text-to-Speech Durumu -->
+<div id="ttsStatus" class="tts-status" style="display: none;">
+    Metin Okuma: <span id="ttsStatusText">Kapalı</span>
+</div>
+    <!-- Footer -->
+    <footer class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="footer-title"><i class="fas fa-heart me-2"></i>İnsan Hakları Projesi</h5>
+                    <p class="text-light">Hi-Kod 5. Dönem Bitirme Projesi kapsamında insan hakları konusunda farkındalık yaratmayı amaçlıyoruz.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title"><i class="fas fa-envelope me-2"></i>Bültene Abone Ol</h5>
+                    <p class="text-light">Güncel gelişmeler ve haberler için bültenimize abone olun.</p>
+                    <form class="subscribe-form" id="subscribeForm">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="E-posta adresiniz" required>
+                            <button class="btn btn-primary" type="submit">Abone Ol</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title text-center"><i class="fas fa-share-alt me-2"></i>Bizi Takip Edin</h5>
+                    <div class="social-links">
+                        <a href="https://github.com/kemalalperakdnz/goldbees_insanhaklar" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="copyright">Gold Bees - Hi-Kod 5. Dönem. Tüm hakları saklıdır.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const ctxFreedomOfExpression = document.getElementById('chartFreedomOfExpression').getContext('2d');
+
+        const dataFreedomOfExpression = {
+            labels: ['ABD', 'Rusya', 'Çin', 'Brezilya', 'Türkiye', 'Fransa', 'Japonya'],
+            datasets: [{
+                label: 'İfade Özgürlüğü Endeksi (2023)',
+                data: [23.85, 48.92, 78.48, 34.05, 50.02, 22.92, 28.86],  // Bu sayılar örnektir, gerçeğe uygun verilerle değiştirilmelidir
+                backgroundColor: 'rgba(255, 99, 132, 0.8)', // Kırmızı tonları
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 2,
+                hoverBackgroundColor: 'rgba(255, 99, 132, 1)',
+                hoverBorderColor: 'rgba(255, 99, 132, 1)',
+                barThickness: 50,
+                borderRadius: 8,
+            }]
+        };
+
+        new Chart(ctxFreedomOfExpression, {
+            type: 'bar',
+            data: dataFreedomOfExpression,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Endeks Puanı (0-100)',
+                            font: {
+                                size: 18,
+                                weight: 'bold'
+                            },
+                            color: '#2c3e50'
+                        },
+                        grid: {
+                            display: true,
+                            color: '#e0e0e0',
+                            lineWidth: 1
+                        },
+                        ticks: {
+                            font: {
+                                size: 14
+                            }
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Ülkeler',
+                            font: {
+                                size: 18,
+                                weight: 'bold'
+                            },
+                            color: '#2c3e50'
+                        },
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            },
+                            maxRotation: 45,
+                            minRotation: 45,
+                            padding: 15
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        enabled: true,
+                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        footerColor: '#fff',
+                        titleFont: {
+                            size: 16,
+                            weight: 'bold'
+                        },
+                        bodyFont: {
+                            size: 14
+                        }
+                    }
+                },
+                animation: {
+                    duration: 1200,
+                    easing: 'easeInOutQuart'
+                }
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+                
+                   
+       

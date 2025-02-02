@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adalet ve Hukuk</title>
+    <link rel="icon" href="images/ikon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .blog-header {
+            background: #0c943f;
+            padding: 100px 0 80px;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        .blog-post {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline-item {
+            padding: 20px;
+            border-left: 3px solid #0c943f;
+            margin-bottom: 20px;
+            position: relative;
+            background: #f8f9fa;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 25px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #0c943f;
+        }
+        .quote-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 5px solid #0c943f;
+        }
+        .quotes-section {
+            padding: 2rem 0;
+        }
+        .quote-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        .quote-card:hover {
+            transform: translateY(-5px);
+        }
+        .quote-icon {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background: #0c943f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .quote-icon i {
+            color: white;
+            font-size: 1.2rem;
+        }
+        .quote-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+        .quote-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: top center;
+            border: 2px solid #0c943f;
+            padding: 2px;
+        }
+        .quote-author strong {
+            display: block;
+            color: #0c943f;
+        }
+        .quote-author small {
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-balance-scale me-2"></i>İnsan Hakları</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="bildirge.html"><i class="fas fa-scroll me-1"></i>İnsan Hakları Bildirgesi</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-hands-helping me-1"></i>İnsan Hakları
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="kadın-hakları.html"><i class="fas fa-female me-2"></i>Kadın Hakları</a></li>
+                            <li><a class="dropdown-item" href="çocukhakları.html"><i class="fas fa-child me-2"></i>Çocuk Hakları</a></li>
+                            <li><a class="dropdown-item" href="ifadeozgurlugu.html"><i class="fas fa-comments me-2"></i>İfade Özgürlüğü</a></li>
+                            <li><a class="dropdown-item" href="Mülteci-hakları.html"><i class="fas fa-globe me-2"></i>Mülteci Hakları</a></li>
+                            <li><a class="dropdown-item" href="savas-sivil-haklar.html"><i class="fas fa-shield-alt me-2"></i>Savaş ve Sivil Haklar</a></li>
+                            <li><a class="dropdown-item" href="adaletvehukuk.html"><i class="fas fa-gavel me-2"></i>Adalet ve Hukuk</a></li>
+                            <li><a class="dropdown-item" href="engellihakları.html"><i class="fas fa-wheelchair me-2"></i>Engelli Hakları</a></li>
+                            <li><a class="dropdown-item" href="Eğitim ve sağlık.html"><i class="fas fa-graduation-cap me-2"></i>Eğitim ve Sağlık</a></li>
+                            <li><a class="dropdown-item" href="baris-uzlasi.html"><i class="fas fa-dove me-2"></i>Barış ve Uzlaşı</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><i class="fas fa-info-circle me-1"></i>Hakkımızda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i>İletişim</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Header -->
+    <header class="blog-header">
+        <div class="container">
+            <h1 class="display-3"><i class="fas fa-balance-scale me-2"></i>Adalet ve Hukuk</h1>
+            <p class="lead">Adalet, genel anlamda, her bireyin haklarının eşit ve doğru bir şekilde korunması, herkesin hakkını aldığı bir düzenin sağlanmasıdır.Hukuk, toplumda düzeni sağlamak amacıyla belirlenen yazılı veya yazılı olmayan kurallar bütünüdür.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <div class="row">
+            <!-- Blog Content -->
+            <div class="col-lg-8">
+                <!-- Giriş Bölümü -->
+                <article class="blog-post mb-5">
+                    <h2 class="mb-4">Adalet ve Hukuk</h2>
+                    <div class="row mb-4">
+                        <div class="col-md-8">
+                            <p class="lead">Adalet ve hukuk, bir toplumda düzeni sağlamak, bireylerin haklarını güvence altına almak ve toplumsal barışı korumak için kritik öneme sahiptir. Adaletin sağlanması, toplumda bireyler arasında güven, eşitlik ve huzur oluşturur. Hukuk ise, bu adaletin somut kurallar ve düzenlemelerle hayat bulmasını sağlar.
+
+                                Toplumsal Barışın Sağlanması: Adalet, toplumsal barışın teminatıdır. Hukuk ise bu barışın korunmasını ve devam etmesini sağlar.
+                                Hakların Korunması: Adalet, her bireyin haklarını savunur ve korur. Hukuk, bu hakların korunmasını sağlamak için bir çerçeve oluşturur.
+                                Toplumsal Huzurun Sağlanması: Hukuk, bireylerin hakları arasında denge kurarak toplumsal huzuru temin eder. Adalet ise bu dengeyi ve eşitliği sürekli kılmak için gereklidir.</p>
+
+                             <p class="lead">Adalet ve hukuk, toplumun temel yapı taşlarıdır. Adaletin sağlanması sadece kanunların uygulanması değil, aynı zamanda toplumsal değerler ve etik anlayışla da ilgilidir. Hukuk ise bu adaletin sağlanabilmesi için somut kurallar ortaya koyar. Her iki kavram, toplumsal barışın ve bireysel hakların korunmasının teminatıdır.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <img src="images/adaletvehukuk.jpg" alt="Adalet ve Hukuk" class="img-fluid rounded shadow-sm">
+                        </div>
+                    </div>
+ 
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <h3 class="h4">Adaletin Temel Unsurları</h3>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Hukukun Üstünlüğü:</strong> Yasaların herkese eşit şekilde uygulanması
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Bağımsız Yargı:</strong> Yargı sisteminin siyasi baskılardan uzak olması
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Adil Yargılanma Hakkı:</strong> Her bireyin tarafsız bir mahkemede yargılanma hakkı
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>İnsan Hakları:</strong> Temel hak ve özgürlüklerin korunması
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Şeffaflık:</strong> Hukuki süreçlerin açık ve erişilebilir olması
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                   
+                <!-- Dünya'da Önemli Barış Süreçleri -->
+                <article class="blog-post mb-5">
+                    <h2 class="mb-4">Dünya'da Önemli Hukuk Süreçleri</h2>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="images/magna_carta.jpg" alt="Magna Carta" class="img-fluid rounded mb-3">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Magna Carta ve Hukukun Temelleri</h3>
+                                    <p class="text-muted">1215</p>
+                                    <p>İngiltere Kralı John tarafından imzalanan Magna Carta, bireysel hakların korunması ve hukukun üstünlüğü kavramlarının temellerini atmıştır.</p>
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h5>Önemli Aşamalar</h5>
+                                            <ul>
+                                                <li>1215: Magna Carta'nın imzalanması</li>
+                                                <li>17. yüzyıl: İngiltere'de anayasal gelişmeler</li>
+                                                <li>20. yüzyıl: İnsan hakları sözleşmelerine temel oluşturması</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="timeline-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="images/nurnberg.jpeg" alt="Nürnberg Mahkemeleri" class="img-fluid rounded mb-3">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Nürnberg Mahkemeleri</h3>
+                                    <p class="text-muted">1945-1946</p>
+                                    <p>İkinci Dünya Savaşı'nın ardından insanlığa karşı suçlar için uluslararası hukukun gelişiminde dönüm noktası oldu.</p>
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h5>Önemli Aşamalar</h5>
+                                            <ul>
+                                                <li>1945: Mahkemelerin kurulması</li>
+                                                <li>1946: İlk kararların verilmesi</li>
+                                                <li>Uluslararası hukuk normlarının geliştirilmesi</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="timeline-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="images/insan_haklari.png" alt="İnsan Hakları Evrensel Beyannamesi" class="img-fluid rounded mb-3">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>İnsan Hakları Evrensel Beyannamesi</h3>
+                                    <p class="text-muted">1948</p>
+                                    <p>Birleşmiş Milletler tarafından kabul edilen bu belge, modern insan hakları hukukunun temelini oluşturdu.</p>
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h5>Önemli Aşamalar</h5>
+                                            <ul>
+                                                <li>1948: Beyannamenin kabul edilmesi</li>
+                                                <li>1976: Uluslararası insan hakları sözleşmelerine temel oluşturması</li>
+                                                <li>Günümüz: Küresel insan hakları koruma mekanizmalarının oluşturulması</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                 <!-- Önemli Kişilerin Sözleri -->
+                 <div class="quotes-section my-5">
+                    <h3 class="text-center mb-4">Adalet ve Hukuk Üzerine Söylenmiş Sözler</h3>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Adalet kutup yıldızı gibi yerinde durur ve geri kalan her şey onun etrafında döner.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/konf1.jpg" alt="Konfüçyüs" class="author-img">
+                                        <div>
+                                            <strong>Konfüçyüs</strong>
+                                            <small class="d-block">Filozof</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Bir ülkenin uygarlık düzeyi, adalete verdiği önemle ölçülür.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/Atatürk.jpeg" alt="Mustafa Kemal Atatürk" class="author-img">
+                                        <div>
+                                            <strong>Mustafa Kemal Atatürk</strong>
+                                            <small class="d-block">Türkiye Cumhuriyeti'nin Kurucusu</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Haksızlığa sapıp bütün insanların seninle olmasını sağlamaktansa, adaletle hareket edip tek başına kalmak daha iyidir.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/Gandi.jpeg" alt="Mahatma Gandhi" class="author-img">
+                                        <div>
+                                            <strong>Mahatma Gandhi</strong>
+                                            <small class="d-block">Barış ve Özgürlük Savunucusu</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Adalet, insanların birbirine karşı olan güvenini sağlayan en güçlü bağdır.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/Charles_Montesquieu.jpg" alt="Montesquieu" class="author-img">
+                                        <div>
+                                            <strong>Montesquieu</strong>
+                                            <small class="d-block">Filozof ve Hukukçu</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Türkiye'de Barış Çalışmaları -->
+                <article class="blog-post mb-5">
+                    <h2 class="mb-4">Türkiye'de Adalet ve Hukuk</h2>
+                
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="images/adaletTR.jpg" alt="Adalet" class="img-fluid rounded mb-3">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Hukukun Temelleri</h3>
+                                    <p>Türkiye Cumhuriyeti'nin hukuk sistemi, modern yasalar ve uluslararası hukuk normları üzerine inşa edilmiştir.</p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h4 class="h5">Önemli Anayasal Belgeler</h4>
+                                            <ul>
+                                                <li><strong>1924 Anayasası:</strong> Cumhuriyetin temelini oluşturan anayasa</li>
+                                                <li><strong>1961 Anayasası:</strong> Demokratik hak ve özgürlükleri genişleten anayasa</li>
+                                                <li><strong>1982 Anayasası:</strong> Günümüzde yürürlükte olan anayasa</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h4 class="h5">Uluslararası Hukuk ve Türkiye</h4>
+                                            <ul>
+                                                <li><strong>Avrupa İnsan Hakları Sözleşmesi (1950)</strong></li>
+                                                <li><strong>Birleşmiş Milletler Hukuk Anlaşmaları</strong></li>
+                                                <li><strong>Hukukun Üstünlüğü Prensipleri</strong></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="images/modernhukuk.jpg" alt="Modern Hukuk" class="img-fluid rounded mb-3">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Modern Hukuk Çalışmaları</h3>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h4 class="h5">Hukuk Eğitim Kurumları</h4>
+                                            <ul>
+                                                <li>Üniversitelerde hukuk fakülteleri</li>
+                                                <li>Barolar ve mesleki eğitim merkezleri</li>
+                                                <li>Uluslararası hukuk sempozyumları</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h4 class="h5">Adalet Sistemi Reformları</h4>
+                                            <ul>
+                                                <li>Yargı bağımsızlığı çalışmaları</li>
+                                                <li>Ceza hukukunda reform hareketleri</li>
+                                                <li>Hukukun dijitalleşmesi ve e-devlet projeleri</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                
+
+                <!-- Barışın Geleceği -->
+                <article class="blog-post mb-5">
+                    <h2 class="mb-4">Adaletin Geleceği: Yeni Yaklaşımlar</h2>
+                    
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <img src="images/adaletgeleceği.jpeg" alt="Adaletin Geleceği" class="img-fluid rounded mb-3">
+                            <div class="alert alert-info">
+                                <h4 class="alert-heading">Sürdürülebilir Adalet İçin Öneriler</h4>
+                                <p>Modern dünyada adaleti sağlamak ve geliştirmek için yeni yaklaşımlar:</p>
+                                <ul class="mb-0">
+                                    <li>Teknolojinin hukukta kullanımı
+                                        <ul>
+                                            <li>Elektronik dava sistemleri</li>
+                                            <li>Yapay zeka destekli hukuk analizleri</li>
+                                            <li>Dijital hukuk platformları</li>
+                                        </ul>
+                                    </li>
+                                    <li>Uluslararası hukuk işbirlikleri
+                                        <ul>
+                                            <li>İnsan hakları mahkemeleri</li>
+                                            <li>Ceza adaleti reformları</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h4>Gelecek Nesiller İçin Hukuk</h4>
+                                    <p>Adalet sisteminin güçlendirilmesi için önemli adımlar:</p>
+                                    <ul>
+                                        <li>Hukuk eğitimi reformları
+                                            <ul>
+                                                <li>Okul müfredatında hukuk dersleri</li>
+                                                <li>Hukuk klinikleri ve pratik eğitim</li>
+                                                <li>Dijital hukuk kaynakları</li>
+                                            </ul>
+                                        </li>
+                                        <li>Genç avukatlar ve hukukçular için projeler
+                                            <ul>
+                                                <li>Staj ve eğitim programları</li>
+                                                <li>Uluslararası hukuk değişim programları</li>
+                                                <li>Adalet elçileri</li>
+                                            </ul>
+                                        </li>
+                                        <li>Hukukun topluma yayılması
+                                            <ul>
+                                                <li>Hukuk bilinci artırma kampanyaları</li>
+                                                <li>Toplum temelli hukuki destek projeleri</li>
+                                                <li>Yerel hukuk festivalleri ve seminerler</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="position-sticky" style="top: 2rem;">
+                    <!-- Önemli Kaynaklar -->
+                    <div class="card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="h5 mb-0"><i class="fas fa-book me-2"></i>Önemli Hukuki Kaynaklar</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <a href="https://www.mevzuat.gov.tr/MevzuatMetin/1.5.2709.pdf" class="text-decoration-none">
+                                        <i class="fas fa-external-link-alt me-2"></i>Türkiye Cumhuriyeti Anayasası
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="https://www.mevzuat.gov.tr/MevzuatMetin/1.5.5237.pdf" class="text-decoration-none">
+                                        <i class="fas fa-external-link-alt me-2"></i>Türk Ceza Kanunu
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="https://www.mevzuat.gov.tr/MevzuatMetin/1.5.4721.pdf" class="text-decoration-none">
+                                        <i class="fas fa-external-link-alt me-2"></i>Türk Medeni Kanunu
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Önemli Kurumlar -->
+                    <div class="card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="h5 mb-0"><i class="fas fa-building me-2"></i>Önemli Hukuki Kurumlar</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <a href="https://www.anayasa.gov.tr/tr/anasayfa/" class="text-decoration-none">
+                                        <i class="fas fa-landmark me-2"></i>Anayasa Mahkemesi
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="https://www.yargitay.gov.tr/" class="text-decoration-none">
+                                        <i class="fas fa-balance-scale me-2"></i>Yargıtay
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="https://www.danistay.gov.tr/" class="text-decoration-none">
+                                        <i class="fas fa-gavel me-2"></i>Danıştay
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="https://www.adalet.gov.tr/" class="text-decoration-none">
+                                        <i class="fas fa-university me-2"></i>Adalet Bakanlığı
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="https://www.barobirlik.org.tr/" class="text-decoration-none">
+                                        <i class="fas fa-users me-2"></i>Türkiye Barolar Birliği
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- İstatistikler -->
+                    <div class="card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="h5 mb-0"><i class="fas fa-globe me-2"></i>Dünyada Hukuk İstatistikleri</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <i class="fas fa-balance-scale text-primary me-2"></i>
+                                    <strong>İsveç:</strong> Hukukun üstünlüğü endeksinde 9.2/10 puanla dünya birincisi.
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-gavel text-success me-2"></i>
+                                    <strong>Almanya:</strong> Yargı bağımsızlığı ve hukuk sisteminin etkinliği konusunda 9.0/10 puanla ikinci sırada.
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-university text-info me-2"></i>
+                                    <strong>Hollanda:</strong> Hukuk devleti ilkelerinin uygulanmasında 8.9/10 puanla üçüncü sırada.
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-scale-balanced text-warning me-2"></i>
+                                    <strong>Kanada:</strong> Adil yargılanma ve yargı sisteminin şeffaflığında 8.8/10 puanla dördüncü.
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-landmark text-danger me-2"></i>
+                                    <strong>Fransa:</strong> Hukuk sisteminin etkinliği ve adalete erişimde 8.7/10 puanla beşinci.
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-flag text-primary me-2"></i>
+                                    <strong>Türkiye:</strong> Hukukun üstünlüğü endeksinde 6.5/10 puanla 30. sırada yer almaktadır.
+                                </li>
+                            </ul>
+                            <div class="alert alert-info mt-3">
+                                <i class="fas fa-info-circle me-2"></i>
+                                <small>Not: Puanlar Hukukun Üstünlüğü Endeksi'ne göredir. Yüksek puan daha iyi hukuk sistemini gösterir.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+  <!-- Erişilebilirlik Butonu ve Menüsü -->
+<div class="accessibility-button" id="accessibilityBtn">
+    <i class="fas fa-universal-access"></i>
+</div>
+
+<div class="accessibility-menu" id="accessibilityMenu">
+    <div class="menu-grid">
+        <div class="menu-item" id="fontSizeBtn">
+            <i class="fas fa-text-height"></i>
+            <span>Büyük Metin</span>
+        </div>
+        <div class="menu-item" id="contrastBtn">
+            <i class="fas fa-adjust"></i>
+            <span>Kontrast</span>
+        </div>
+        <div class="menu-item" id="dyslexiaBtn">
+            <i class="fas fa-font"></i>
+            <span>Disleksi Dostu</span>
+        </div>
+        <div class="menu-item" id="lineHeightBtn">
+            <i class="fas fa-arrows-alt-v"></i>
+            <span>Satır Yüksekliği</span>
+        </div>
+        <div class="menu-item" id="alignLeftBtn">
+            <i class="fas fa-align-left"></i>
+            <span>Sola Hizala</span>
+        </div>
+        <div class="menu-item" id="alignCenterBtn">
+            <i class="fas fa-align-center"></i>
+            <span>Ortala</span>
+        </div>
+        <div class="menu-item" id="alignRightBtn">
+            <i class="fas fa-align-right"></i>
+            <span>Sağa Hizala</span>
+        </div>
+        <div class="menu-item" id="alignJustifyBtn">
+            <i class="fas fa-align-justify"></i>
+            <span>İki Yana Yasla</span>
+        </div>
+        <div class="menu-item" id="readingBtn">
+            <i class="fas fa-book-reader"></i>
+            <span>Metin Okuma</span>
+        </div>
+        <div class="menu-item" id="cursorBtn">
+            <i class="fas fa-mouse-pointer"></i>
+            <span>İmleç</span>
+        </div>
+        <div class="menu-item" id="animationBtn">
+            <i class="fas fa-film"></i>
+            <span>Animasyonları Durdur</span>
+        </div>
+        <div class="menu-item" id="resetBtn">
+            <i class="fas fa-undo"></i>
+            <span>Sıfırla</span>
+        </div>
+    </div>
+</div>
+
+<!-- Text-to-Speech Durumu -->
+<div id="ttsStatus" class="tts-status" style="display: none;">
+    Metin Okuma: <span id="ttsStatusText">Kapalı</span>
+</div>
+
+    <!-- Footer -->
+    <footer class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="footer-title"><i class="fas fa-heart me-2"></i>İnsan Hakları Projesi</h5>
+                    <p class="text-light">Hi-Kod 5. Dönem Bitirme Projesi kapsamında insan hakları konusunda farkındalık yaratmayı amaçlıyoruz.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title"><i class="fas fa-envelope me-2"></i>Bültene Abone Ol</h5>
+                    <p class="text-light">Güncel gelişmeler ve haberler için bültenimize abone olun.</p>
+                    <form class="subscribe-form" id="subscribeForm">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="E-posta adresiniz" required>
+                            <button class="btn btn-primary" type="submit">Abone Ol</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title text-center"><i class="fas fa-share-alt me-2"></i>Bizi Takip Edin</h5>
+                    <div class="social-links">
+                        <a href="https://github.com/kemalalperakdnz/goldbees_insanhaklar" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="copyright">Gold Bees - Hi-Kod 5. Dönem. Tüm hakları saklıdır.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
