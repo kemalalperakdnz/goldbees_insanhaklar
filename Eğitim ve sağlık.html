@@ -1,0 +1,807 @@
+<html lang="tr"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eğitim ve Sağlığa Erişim</title>
+    <link rel="icon" href="images/ikon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .blog-header {
+            background: #fed700;
+            padding: 100px 0 80px;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        .blog-post {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline-item {
+            padding: 20px;
+            background: #fed700;
+            border-left: 3px solid #fed700 ;
+            margin-bottom: 20px;
+            position: relative;
+            background: #f8f9fa;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 25px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #fed700;
+        }
+        .quote-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 5px solid  #fed700 ;
+        }
+        .quotes-section {
+            padding: 2rem 0;
+        }
+        .quote-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        .quote-card:hover {
+            transform: translateY(-5px);
+        }
+        .quote-icon {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background: #fed700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .quote-icon i {
+            color: white;
+            font-size: 1.2rem;
+        }
+        .quote-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+        .quote-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: top center;
+            border: 2px solid #fed700;
+            padding: 2px;
+        }
+        .quote-author strong {
+            display: block;
+            color: #fed700;
+        }
+        .quote-author small {
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-balance-scale me-2"></i>İnsan Hakları</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="bildirge.html"><i class="fas fa-scroll me-1"></i>İnsan Hakları Bildirgesi</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-hands-helping me-1"></i>İnsan Hakları
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="kadın-hakları.html"><i class="fas fa-female me-2"></i>Kadın Hakları</a></li>
+                            <li><a class="dropdown-item" href="çocukhakları.html"><i class="fas fa-child me-2"></i>Çocuk Hakları</a></li>
+                            <li><a class="dropdown-item" href="ifadeozgurlugu.html"><i class="fas fa-comments me-2"></i>İfade Özgürlüğü</a></li>
+                            <li><a class="dropdown-item" href="Mülteci-hakları.html"><i class="fas fa-globe me-2"></i>Mülteci Hakları</a></li>
+                            <li><a class="dropdown-item" href="savas-sivil-haklar.html"><i class="fas fa-shield-alt me-2"></i>Savaş ve Sivil Haklar</a></li>
+                            <li><a class="dropdown-item" href="adaletvehukuk.html"><i class="fas fa-gavel me-2"></i>Adalet ve Hukuk</a></li>
+                            <li><a class="dropdown-item" href="engellihakları.html"><i class="fas fa-wheelchair me-2"></i>Engelli Hakları</a></li>
+                            <li><a class="dropdown-item" href="Eğitim ve sağlık.html"><i class="fas fa-graduation-cap me-2"></i>Eğitim ve Sağlık</a></li>
+                            <li><a class="dropdown-item" href="baris-uzlasi.html"><i class="fas fa-dove me-2"></i>Barış ve Uzlaşı</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><i class="fas fa-info-circle me-1"></i>Hakkımızda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i>İletişim</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Header -->
+    <header class="blog-header">
+        <div class="container">
+            <h1 class="display-3"><i class="fas fa-graduation-cap text-white me-2"></i><i class="fas fa-heartbeat text-white me-3"></i>Eğitim ve Sağlığa Erişim</h1>
+            <p class="lead">İnsan Hakları Evrensel Beyannamesi'ne göre eğitim ve sağlık, her bireyin sahip olduğu temel haklar arasında yer alır.Eğitim ve sağlık sadece birer ayrıcalık değil, tüm insanlara eşit olarak sunulması gereken temel haklardır. </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <div class="row">
+            <!-- Blog Content -->
+            <div class="col-lg-9">
+                <!-- Giriş Bölümü -->
+                <article class="blog-post mb-5">
+                    <h2 class="mb-4">Eğitim ve Sağlık : İki Temel Hak</h2>
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="card h-100 shadow-sm">
+                                <img src="images/egitim.jpeg" class="card-img-top" alt="Eğitim" style="height: 200px; object-fit: cover;">
+                                <div class="card-body">
+                                    <h4 class="mb-3">Eğitim</h4>
+                                    <p class="lead">Eğitim, bireylerin bilgi ve becerilerini geliştirmek amacıyla yapılan öğretim sürecidir. Eğitim, bireylerin sosyal, kültürel ve ekonomik gelişimlerine katkıda bulunur. Eğitim, her bireyin sahip olması gereken temel bir hak olarak kabul edilir. Eğitim hakkı, insan hakları evrensel beyannamesi ve çocuk hakları sözleşmesi gibi uluslararası belgelerde güvence altına alınmıştır.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 shadow-sm">
+                                <img src="images/saglık.jpeg" class="card-img-top" alt="Sağlık" style="height: 200px; object-fit: cover;">
+                                <div class="card-body">
+                                    <h4 class="mb-3">Sağlık</h4>
+                                    <p class="lead">Sağlık, bireylerin bedensel ve ruhsal iyilik hali olarak tanımlanır. Sağlık, her bireyin sahip olması gereken temel bir hak olarak kabul edilir. Sağlık hakkı, insan hakları evrensel beyannamesi ve çocuk hakları sözleşmesi gibi uluslararası belgelerde güvence altına alınmıştır. Sağlık hakkı, bireylerin sağlıklı bir yaşam sürmelerini sağlamak amacıyla çeşitli hizmetler sunulmasını içerir.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+ 
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <h3 class="h4">Eğitimin ve Sağlığın Temel ilkeleri</h3>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Genellik ve Eşitlik İlkesi</strong> Her birey, hiçbir ayrım gözetilmeksizin eğitim hakkına sahiptir.
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Ferdî ve Toplumsal İhtiyaçlara Uygunluk İlkesi</strong>Eğitim, bireylerin yetenek ve ilgilerine göre şekillendirilmelidir. 
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong> Bilimsellik İlkesi</strong>Eğitimde kullanılan yöntemler ve içerikler bilimsel temellere dayanmalıdır. 
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Karma Eğitim İlkesi</strong> Kadın ve erkek öğrenciler, aynı ortamda eşit koşullarda eğitim almalıdır.
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Laiklik İlkesi</strong>Eğitim sistemi, dini inançlardan bağımsız olmalı ve herkese tarafsız bir şekilde eğitim verilmelidir. 
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong> Erişilebilirlik ve Eşitlik İlkesi</strong>Sağlık hizmetlerine ulaşım herkes için kolay ve mümkün olmalıdır.
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Bilimsellik ve Kanıta Dayalı Uygulama İlkesi</strong>Sağlık hizmetleri bilimsel verilere ve güncel araştırmalara dayanmalıdır.
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong> Koruyucu Sağlık Hizmetleri Önceliği İlkesi</strong>Hastalıkları tedavi etmekten ziyade, hastalıkların ortaya çıkmasını önlemek esastır.
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong> İnsan Haklarına ve Hasta Haklarına Saygı İlkesi</strong> Hastaların bilgi alma, mahremiyet ve rıza gösterme hakları korunmalıdır.
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Sağlık Eğitimi ve Bilinçlendirme İlkesi</strong> Bireylere ve topluma sağlıklı yaşam konusunda eğitim verilmelidir.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+                   
+               
+                <article class="blog-post mb-5">
+                    <h2 class="mb-4">Evrensel Beyannamede Eğitim ve Sağlık</h2>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h3>Sağlık ve Yaşam Hakkı(Madde-25)</h3>
+                                   <div class="card bg-light">
+                                        <div class="card-body">
+                                            <ul>
+                                                <li>Herkesin, kendisinin ve ailesinin sağlığı ve refahı için yeterli bir yaşam standardına hakkı vardır. Bu, gıda, giyim, konut, tıbbi bakım ve gerekli sosyal hizmetleri kapsar.</li>
+                                                <li>Ana ve çocuk özel ihtimam ve yardım görmek hakkını haizdir. Bütün çocuklar, evlilik içinde veya dışında doğsunlar,
+                                                    aynı sosyal korunmadan faydalanırlar.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h3> Eğitim Hakkı(Madde-26)</h3>
+                                   <div class="card bg-light">
+                                        <div class="card-body">
+                                            <ul>
+                                                <li>Herkes eğitim hakkına sahiptir. Eğitim en azından ilk ve temel seviyede parasız olmalıdır. İlköğretim zorunludur. Teknik ve mesleki eğitim genel olarak erişilebilir olmalı, yükseköğretim ise yetenek esasına göre herkese eşit şekilde açık olmalıdır.</li>
+                                                <li>Eğitim, insan kişiliğinin tam gelişimini sağlamalı ve insan haklarına, temel özgürlüklere saygıyı güçlendirmelidir. Tüm milletler, ırk veya din grupları arasında anlayışı, hoşgörüyü ve dostluğu geliştirmeli ve barışın korunması için Birleşmiş Milletler'in çalışmalarını desteklemelidir.</li>
+                                                <li>Anne ve babalar, çocuklarına verilecek eğitimin türünü seçme öncelik hakkına sahiptir.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </article>
+
+                 <!-- Önemli Kişilerin Sözleri -->
+                 <div class="quotes-section my-5">
+                    <h3 class="text-center mb-4">Eğitim ve Sağlık Hakkında Sözler</h3>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Eğitimdir ki, bir milleti ya özgür, bağımsız, şanlı, yüksek bir topluluk hâlinde yaşatır ya da esaret ve sefalete terk eder.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/Kemal-Ataturk.webp" alt="Atatürk" class="author-img">
+                                        <div>
+                                            <strong>Mustafa Kemal Atatürk</strong>
+                                            <small class="d-block">Türkiye Cumhuriyeti'nin Kurucusu</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Eğitim, dünyayı değiştirmek için kullanabileceğiniz en güçlü silahtır.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/nelson.jpg" alt="Nelson Mandela" class="author-img">
+                                        <div>
+                                            <strong>Nelson Mandela</strong>
+                                            <small class="d-block">Güney Afrika'nın eski Cumhurbaşkanı
+                                            </small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Eğitim kıvılcımla ateş yakmaktır, boş bir kabı doldurmak değil.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/sokrates.jpg" alt="Sokrates" class="author-img">
+                                        <div>
+                                            <strong>Sokrates</strong>
+                                            <small class="d-block">Filozof</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Eğitim hayata hazırlık değil, hayatın ta kendisidir</p>
+                                    <footer class="quote-author">
+                                        <img src="images/john.jpg" alt="John Dewey" class="author-img">
+                                        <div>
+                                            <strong>John Dewey</strong>
+                                            <small class="d-block">Amerikalı filozof ve psikolog
+                                            </small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Eğitim, insanın okulda öğrendiği her şeyi unuttuğunda geriye kalandır.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/albert einsten.webp" alt="Albert Einstein" class="author-img">
+                                        <div>
+                                            <strong>Albert Einstein </strong>
+                                            <small class="d-block">Teorik fizikçi</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Sağlam kafa sağlam vücutta bulunur.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/Kemal-Ataturk.webp" alt="Mustafa Kemal Atatürk" class="author-img">
+                                        <div>
+                                            <strong>Mustafa Kemal Atatürk</strong>
+                                            <small class="d-block">Türkiye Cumhuriyeti Kurucusu</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Gerçek servet, altın ve gümüş değil, sağlıktır.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/Mahatma.jpg" alt="Mahatma Gandhi" class="author-img">
+                                        <div>
+                                            <strong>Mahatma Gandhi</strong>
+                                            <small class="d-block">Hintli avukat</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Vücudun sağlığı, ruhun sağlığından ayrılmaz</p>
+                                    <footer class="quote-author">
+                                        <img src="images/platon.jpg" alt="Platon" class="author-img">
+                                        <div>
+                                            <strong>Platon</strong>
+                                            <small class="d-block">Filazof</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Sağlık, sadece hastalıkların olmaması değil, aynı zamanda fiziksel, zihinsel ve sosyal olarak tam bir iyilik halidir.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/florance.jpg" alt="Florence Nightingale" class="author-img">
+                                        <div>
+                                            <strong>Florence Nightingale</strong>
+                                            <small class="d-block">Modern Hemşireliğin Kurucusu</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Bırakın, yiyecekler ilacınız, ilaçlarınız yiyeceğiniz olsun.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/hipokrat.jpg" alt="Hipokrat" class="author-img">
+                                        <div>
+                                            <strong>Hipokrat</strong>
+                                            <small class="d-block"> Tıbbın Babası</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <article class="blog-post mb-5">
+                    <h2 class="mb-4">Türkiye'de Eğitim ve Sağlık</h2>
+
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="images/1687727744844918969.webp" alt="Atatürk ve Eğitim" class="img-fluid rounded mb-3">
+                                    <img src="images/ataturk-ve-ve-milli-egitim-davasi.webp" alt="Atatürk ve Eğitim" class="img-fluid rounded mb-3">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Eğitim</h3>
+                                    <p >Türkiye’de eğitim sistemi, tarihsel olarak büyük bir gelişim göstermiştir. Modern eğitim, Cumhuriyet’in ilanıyla birlikte Atatürk’ün öncülüğünde şekillenmeye başlamış ve sürekli olarak evrilmiştir. Bugün, Türkiye'de eğitim; devletin belirlediği temel ilkelere dayanarak, farklı seviyelerde ve çeşitli türlerde sağlanmaktadir.</p>
+                                    
+                                                    <ul>
+                                                        <li>Türkiye’de eğitim, anayasa ile güvence altına alınmış bir haktır ve eğitim sistemi, devlet tarafından denetlenip düzenlenmektedir. </li>
+                                                        <li>Türkiye’de eğitim 12 yıl zorunludur. Bu süre, 4 yıl ilkokul, 4 yıl ortaokul ve 4 yıl lise eğitimini kapsar.</li>  
+                                                        <li>Türkiye’deki eğitim sistemi, gelişen dünyanın ihtiyaçlarına göre sürekli olarak değişen ve gelişen bir yapıdadır.</li>
+                                                    </ul>      
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="images/sağlık5.jpg" alt="Sağlık" class="img-fluid rounded mb-3">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Sağlık</h3>
+                                    <p>Türkiye’de sağlık hizmetleri, devlet tarafından geniş çapta sağlanmakta<br> ve sürekli olarak iyileştirilmeye çalışılmaktadır.</p>
+                                          
+                                                    <ul>
+                                                        <li>Türkiye’de sağlık hizmetleri, devlet tarafından geniş çapta sağlanmakta ve sürekli olarak iyileştirilmeye çalışılmaktadır.</li>
+                                                        <li>Sağlık Bakanlığı, Türkiye'deki sağlık hizmetlerinin düzenleyicisi ve denetleyicisidir.</li>
+                                                        <li>Türkiye, Genel Sağlık Sigortası sistemi kapsamında evrensel sağlık hizmetlerine sahiptir.</li>
+                                                        <li>Türkiye'de Uluslararası Sağlık Turizmi ve Turist Sağlığı Yönetmeliği 13 Temmuz 2017 tarihinde yürürlüğe girmiştir. </li>
+                                                        <li>Türkiye sağlık turizmi açısından oldukça gelişmiştir.</li>
+                                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Barışın Geleceği -->
+                <article class="blog-post mb-5">
+                    <h2 class="mb-4">Eğitim ve Sağlıkta Gelecek</h2>
+                    
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="alert alert-info same-bg">
+                                <h4 class="alert-heading"> Eğitimde Gelecek </h4>
+                                <p>Eğitimde geleceğin nasıl şekilleneceği, hızla değişen teknoloji, toplum ihtiyaçları ve küresel gelişmelerle yakından ilişkilidir. </p>
+                                <ul class="mb-0">
+                                    <li> Uzaktan Eğitim ve Hibrit Modeller</li>
+                                    <li> Dijitalleşme ve Teknoloji Kullanımı</li>
+                                    <li>Global Eğitim ve Kültürel Çeşitlilik</li>
+                                    <li>Hayat Boyu Öğrenme</li>
+                                    <li> Sosyal ve Duygusal Öğrenme (SEL)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 same-bg">
+                                <div class="card-body">
+                                    <h4>Sağlıkta Gelecek</h4>
+                                    <p>Sağlıkta gelecekteki gelişmeler, hızla ilerleyen teknoloji, demografik değişiklikler ve küresel sağlık trendleriyle şekillenecek. İşte sağlık alanında beklenen bazı önemli eğilimler:</p>
+                                    <ul>
+                                        <li> Telemedisin ve uzaktan sağlık hizmetleri </li>
+                                        <li>Yapay Zeka ve Veri Analitiği</li>
+                                        <li>Biyoteknoloji ve Kök Hücre Tedavileri</li>
+                                        <li> Sağlıkta Kişisel Sağlık ve Önleyici Tedbirler</li>
+                                        <li> Robotik Cerrahi ve Otomasyon</li>
+                                        <li>Biyoetik ve Yasal Düzenlemeler</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article></div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="position-sticky" style="top: 2rem;">
+                    <!-- Önemli Kaynaklar -->
+                    <div class="card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="h5 mb-0"><i class="fas fa-book me-2"></i>Önemli Kaynaklar</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <a href="https://www.who.int/" class="text-decoration-none">
+                                        <i class="fas fa-external-link-alt me-2"></i>Dünya Sağlık Örgütü
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="https://www.hsk.gov.tr/eklentiler/dosyalar/9a3bfe74-cdc4-4ae4-b876-8cb1d7eeae05.pdf" class="text-decoration-none">
+                                        <i class="fas fa-external-link-alt me-2"></i>İnsan Hakları Beyannamesi
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Dünya Sıralamaları -->
+                    <div class="mb-5">
+                        <!-- Eğitim Sıralaması -->
+                        <div class="mb-4">
+                            <div class="card shadow-sm border-0">
+                                <div class="card-header bg-gradient bg-primary text-white py-3">
+                                    <h4 class="h5 mb-0 d-flex align-items-center">
+                                        <i class="fas fa-graduation-cap fa-lg me-2"></i>
+                                        Dünyada Eğitim Kalitesinde İlk 5 Ülke
+                                    </h4>
+                                </div>
+                                <div class="card-body p-4">
+                                    <div class="list-group list-group-flush">
+                                        <div class="list-group-item border-0 d-flex align-items-center py-3">
+                                            <div class="me-3">
+                                                <span class="badge bg-primary rounded-circle p-2"><i class="fas fa-trophy"></i></span>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-1 fw-bold">Finlandiya</h6>
+                                                <p class="text-muted mb-0 small">
+                                                    <i class="fas fa-star text-warning me-1"></i>
+                                                    Dünya standartlarında eğitim kalitesi
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item border-0 d-flex align-items-center py-3">
+                                            <div class="me-3">
+                                                <span class="badge bg-primary rounded-circle p-2"><i class="fas fa-medal"></i></span>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-1 fw-bold">Güney Kore</h6>
+                                                <p class="text-muted mb-0 small">
+                                                    <i class="fas fa-laptop-code text-info me-1"></i>
+                                                    Teknoloji odaklı eğitim sistemi
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item border-0 d-flex align-items-center py-3">
+                                            <div class="me-3">
+                                                <span class="badge bg-primary rounded-circle p-2"><i class="fas fa-award"></i></span>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-1 fw-bold">Danimarka</h6>
+                                                <p class="text-muted mb-0 small">
+                                                    <i class="fas fa-book-reader text-success me-1"></i>
+                                                    Yenilikçi öğretim metodları
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item border-0 d-flex align-items-center py-3">
+                                            <div class="me-3">
+                                                <span class="badge bg-primary rounded-circle p-2"><i class="fas fa-certificate"></i></span>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-1 fw-bold">Hong Kong</h6>
+                                                <p class="text-muted mb-0 small">
+                                                    <i class="fas fa-chart-line text-primary me-1"></i>
+                                                    Yüksek akademik başarı
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item border-0 d-flex align-items-center py-3">
+                                            <div class="me-3">
+                                                <span class="badge bg-primary rounded-circle p-2"><i class="fas fa-star"></i></span>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-1 fw-bold">İngiltere</h6>
+                                                <p class="text-muted mb-0 small">
+                                                    <i class="fas fa-university text-secondary me-1"></i>
+                                                    Köklü eğitim geleneği
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sağlık Sıralaması -->
+                        <div>
+                            <div class="card shadow-sm border-0">
+                                <div class="card-header bg-gradient bg-primary text-white py-3">
+                                    <h4 class="h5 mb-0 d-flex align-items-center">
+                                        <i class="fas fa-heartbeat fa-lg me-2"></i>
+                                        Dünyada Sağlık Kalitesinde İlk 5 Ülke
+                                    </h4>
+                                </div>
+                                <div class="card-body p-4">
+                                    <div class="list-group list-group-flush">
+                                        <div class="list-group-item border-0 d-flex align-items-center py-3">
+                                            <div class="me-3">
+                                                <span class="badge bg-primary rounded-circle p-2"><i class="fas fa-trophy"></i></span>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-1 fw-bold">Tayvan <span class="text-primary">86.04</span></h6>
+                                                <p class="text-muted mb-0 small">
+                                                    <i class="fas fa-hospital text-danger me-1"></i>
+                                                    Modern sağlık altyapısı
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item border-0 d-flex align-items-center py-3">
+                                            <div class="me-3">
+                                                <span class="badge bg-primary rounded-circle p-2"><i class="fas fa-medal"></i></span>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-1 fw-bold">Güney Kore <span class="text-primary">83.04</span></h6>
+                                                <p class="text-muted mb-0 small">
+                                                    <i class="fas fa-microscope text-info me-1"></i>
+                                                    İleri tıbbi teknoloji
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item border-0 d-flex align-items-center py-3">
+                                            <div class="me-3">
+                                                <span class="badge bg-primary rounded-circle p-2"><i class="fas fa-award"></i></span>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-1 fw-bold">Japonya <span class="text-primary">80.52</span></h6>
+                                                <p class="text-muted mb-0 small">
+                                                    <i class="fas fa-user-md text-success me-1"></i>
+                                                    Uzman sağlık personeli
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item border-0 d-flex align-items-center py-3">
+                                            <div class="me-3">
+                                                <span class="badge bg-primary rounded-circle p-2"><i class="fas fa-certificate"></i></span>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-1 fw-bold">Fransa <span class="text-primary">79.96</span></h6>
+                                                <p class="text-muted mb-0 small">
+                                                    <i class="fas fa-procedures text-warning me-1"></i>
+                                                    Kapsamlı sağlık hizmetleri
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item border-0 d-flex align-items-center py-3">
+                                            <div class="me-3">
+                                                <span class="badge bg-primary rounded-circle p-2"><i class="fas fa-star"></i></span>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-1 fw-bold">Danimarka <span class="text-primary">79.77</span></h6>
+                                                <p class="text-muted mb-0 small">
+                                                    <i class="fas fa-hand-holding-medical text-danger me-1"></i>
+                                                    Erişilebilir sağlık sistemi
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Erişilebilirlik Butonu ve Menüsü -->
+<div class="accessibility-button" id="accessibilityBtn">
+    <i class="fas fa-universal-access"></i>
+</div>
+
+<div class="accessibility-menu" id="accessibilityMenu">
+    <div class="menu-grid">
+        <div class="menu-item" id="fontSizeBtn">
+            <i class="fas fa-text-height"></i>
+            <span>Büyük Metin</span>
+        </div>
+        <div class="menu-item" id="contrastBtn">
+            <i class="fas fa-adjust"></i>
+            <span>Kontrast</span>
+        </div>
+        <div class="menu-item" id="dyslexiaBtn">
+            <i class="fas fa-font"></i>
+            <span>Disleksi Dostu</span>
+        </div>
+        <div class="menu-item" id="lineHeightBtn">
+            <i class="fas fa-arrows-alt-v"></i>
+            <span>Satır Yüksekliği</span>
+        </div>
+        <div class="menu-item" id="alignLeftBtn">
+            <i class="fas fa-align-left"></i>
+            <span>Sola Hizala</span>
+        </div>
+        <div class="menu-item" id="alignCenterBtn">
+            <i class="fas fa-align-center"></i>
+            <span>Ortala</span>
+        </div>
+        <div class="menu-item" id="alignRightBtn">
+            <i class="fas fa-align-right"></i>
+            <span>Sağa Hizala</span>
+        </div>
+        <div class="menu-item" id="alignJustifyBtn">
+            <i class="fas fa-align-justify"></i>
+            <span>İki Yana Yasla</span>
+        </div>
+        <div class="menu-item" id="readingBtn">
+            <i class="fas fa-book-reader"></i>
+            <span>Metin Okuma</span>
+        </div>
+        <div class="menu-item" id="cursorBtn">
+            <i class="fas fa-mouse-pointer"></i>
+            <span>İmleç</span>
+        </div>
+        <div class="menu-item" id="animationBtn">
+            <i class="fas fa-film"></i>
+            <span>Animasyonları Durdur</span>
+        </div>
+        <div class="menu-item" id="resetBtn">
+            <i class="fas fa-undo"></i>
+            <span>Sıfırla</span>
+        </div>
+    </div>
+</div>
+
+<!-- Text-to-Speech Durumu -->
+<div id="ttsStatus" class="tts-status" style="display: none;">
+    Metin Okuma: <span id="ttsStatusText">Kapalı</span>
+</div>
+
+    <!-- Footer -->
+    <footer class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="footer-title"><i class="fas fa-heart me-2"></i>İnsan Hakları Projesi</h5>
+                    <p class="text-light">Hi-Kod 5. Dönem Bitirme Projesi kapsamında insan hakları konusunda farkındalık yaratmayı amaçlıyoruz.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title"><i class="fas fa-envelope me-2"></i>Bültene Abone Ol</h5>
+                    <p class="text-light">Güncel gelişmeler ve haberler için bültenimize abone olun.</p>
+                    <form class="subscribe-form" id="subscribeForm">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="E-posta adresiniz" required="">
+                            <button class="btn btn-primary" type="submit">Abone Ol</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title text-center"><i class="fas fa-share-alt me-2"></i>Bizi Takip Edin</h5>
+                    <div class="social-links">
+                        <a href="https://github.com/kemalalperakdnz/goldbees_insanhaklar" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="copyright">Gold Bees - Hi-Kod 5. Dönem. Tüm hakları saklıdır.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+
+
+</body></html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim</title>
+    <link rel="icon" href="images/ikon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-balance-scale me-2"></i>İnsan Hakları</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="bildirge.html"><i class="fas fa-scroll me-1"></i>İnsan Hakları Bildirgesi</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="index.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-hands-helping me-1"></i>İnsan Hakları
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="kadın-hakları.html"><i class="fas fa-female me-2"></i>Kadın Hakları</a></li>
+                            <li><a class="dropdown-item" href="çocukhakları.html"><i class="fas fa-child me-2"></i>Çocuk Hakları</a></li>
+                            <li><a class="dropdown-item" href="ifadeozgurlugu.html"><i class="fas fa-comments me-2"></i>İfade Özgürlüğü</a></li>
+                            <li><a class="dropdown-item" href="Mülteci-hakları.html"><i class="fas fa-globe me-2"></i>Mülteci Hakları</a></li>
+                            <li><a class="dropdown-item" href="savas-sivil-haklar.html"><i class="fas fa-shield-alt me-2"></i>Savaş ve Sivil Haklar</a></li>
+                            <li><a class="dropdown-item" href="adaletvehukuk.html"><i class="fas fa-gavel me-2"></i>Adalet ve Hukuk</a></li>
+                            <li><a class="dropdown-item" href="engellihakları.html"><i class="fas fa-wheelchair me-2"></i>Engelli Hakları</a></li>
+                            <li><a class="dropdown-item" href="Eğitim ve sağlık.html"><i class="fas fa-graduation-cap me-2"></i>Eğitim ve Sağlık</a></li>
+                            <li><a class="dropdown-item" href="baris-uzlasi.html"><i class="fas fa-dove me-2"></i>Barış ve Uzlaşı</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><i class="fas fa-info-circle me-1"></i>Hakkımızda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html"><i class="fas fa-envelope me-1"></i>İletişim</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- İletişim Başlık -->
+    <div class="contact-header">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-md-8">
+                    <h1 class="display-4 text-white mb-4"><i class="fas fa-envelope-open-text me-3"></i>İletişime Geçin</h1>
+                    <p class="lead text-white">İnsan hakları konusunda görüşlerinizi, önerilerinizi veya taleplerinizi bize iletebilirsiniz.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- İletişim Formu ve Bilgiler -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- İletişim Formu -->
+            <div class="col-lg-8">
+                <div class="contact-form-card h-100">
+                    <h3 class="mb-4"><i class="fas fa-paper-plane me-2"></i>Mesaj Gönderin</h3>
+                    <form id="contactForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="name" class="form-label">Adınız Soyadınız</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">E-posta Adresiniz</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Konu</label>
+                            <input type="text" class="form-control" id="subject" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Mesajınız</label>
+                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane me-2"></i>Mesaj Gönder
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- İletişim Bilgileri -->
+            <div class="col-lg-4">
+                <div class="contact-info-card h-100">
+                    <h3 class="mb-4"><i class="fas fa-info-circle me-2"></i>İletişim Bilgileri</h3>
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h5>Adres</h5>
+                            <p>760 United Nations Plaza, Manhattan, <br>New York,Amerika Birleşik Devletleri</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h5>Telefon</h5>
+                            <p>+1 (212) 963-1234</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h5>E-posta</h5>
+                            <p>inquiries@un.org</p>
+                        </div>
+                    </div>
+                    <div class="social-media-links mt-4">
+                        <h5><i class="fas fa-share-alt me-2"></i>Sosyal Medya</h5>
+                        <div class="d-flex gap-2 mt-3">
+                            <a href="https://github.com/Gold-Bees/insan-haklari" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Erişilebilirlik Butonu ve Menüsü -->
+<div class="accessibility-button" id="accessibilityBtn">
+    <i class="fas fa-universal-access"></i>
+</div>
+
+<div class="accessibility-menu" id="accessibilityMenu">
+    <div class="menu-grid">
+        <div class="menu-item" id="fontSizeBtn">
+            <i class="fas fa-text-height"></i>
+            <span>Büyük Metin</span>
+        </div>
+        <div class="menu-item" id="contrastBtn">
+            <i class="fas fa-adjust"></i>
+            <span>Kontrast</span>
+        </div>
+        <div class="menu-item" id="dyslexiaBtn">
+            <i class="fas fa-font"></i>
+            <span>Disleksi Dostu</span>
+        </div>
+        <div class="menu-item" id="lineHeightBtn">
+            <i class="fas fa-arrows-alt-v"></i>
+            <span>Satır Yüksekliği</span>
+        </div>
+        <div class="menu-item" id="alignLeftBtn">
+            <i class="fas fa-align-left"></i>
+            <span>Sola Hizala</span>
+        </div>
+        <div class="menu-item" id="alignCenterBtn">
+            <i class="fas fa-align-center"></i>
+            <span>Ortala</span>
+        </div>
+        <div class="menu-item" id="alignRightBtn">
+            <i class="fas fa-align-right"></i>
+            <span>Sağa Hizala</span>
+        </div>
+        <div class="menu-item" id="alignJustifyBtn">
+            <i class="fas fa-align-justify"></i>
+            <span>İki Yana Yasla</span>
+        </div>
+        <div class="menu-item" id="readingBtn">
+            <i class="fas fa-book-reader"></i>
+            <span>Metin Okuma</span>
+        </div>
+        <div class="menu-item" id="cursorBtn">
+            <i class="fas fa-mouse-pointer"></i>
+            <span>İmleç</span>
+        </div>
+        <div class="menu-item" id="animationBtn">
+            <i class="fas fa-film"></i>
+            <span>Animasyonları Durdur</span>
+        </div>
+        <div class="menu-item" id="resetBtn">
+            <i class="fas fa-undo"></i>
+            <span>Sıfırla</span>
+        </div>
+    </div>
+</div>
+
+<!-- Text-to-Speech Durumu -->
+<div id="ttsStatus" class="tts-status" style="display: none;">
+    Metin Okuma: <span id="ttsStatusText">Kapalı</span>
+</div>
+
+    <!-- Footer -->
+    <footer class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="footer-title"><i class="fas fa-heart me-2"></i>İnsan Hakları Projesi</h5>
+                    <p class="text-light">Hi-Kod 5. Dönem Bitirme Projesi kapsamında insan hakları konusunda farkındalık yaratmayı amaçlıyoruz.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title"><i class="fas fa-envelope me-2"></i>Bültene Abone Ol</h5>
+                    <p class="text-light">Güncel gelişmeler ve haberler için bültenimize abone olun.</p>
+                    <form class="subscribe-form" id="subscribeForm">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="E-posta adresiniz" required>
+                            <button class="btn btn-primary" type="submit">Abone Ol</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title text-center"><i class="fas fa-share-alt me-2"></i>Bizi Takip Edin</h5>
+                    <div class="social-links">
+                        <a href="https://github.com/kemalalperakdnz/goldbees_insanhaklar" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="copyright">Gold Bees - Hi-Kod 5. Dönem Tüm hakları saklıdır.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

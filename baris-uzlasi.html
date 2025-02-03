@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barış ve Uzlaşı</title>
+    <link rel="icon" href="images/ikon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .blog-header {
+            background: #0bb7d9;
+            padding: 100px 0 80px;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        .blog-post {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline-item {
+            padding: 20px;
+            border-left: 3px solid #0bb7d9;
+            margin-bottom: 20px;
+            position: relative;
+            background: #f8f9fa;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 25px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #0bb7d9;
+        }
+        .quote-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 5px solid #0bb7d9;
+        }
+        .quotes-section {
+            padding: 2rem 0;
+        }
+        .quote-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        .quote-card:hover {
+            transform: translateY(-5px);
+        }
+        .quote-icon {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background: #0bb7d9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .quote-icon i {
+            color: white;
+            font-size: 1.2rem;
+        }
+        .quote-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+        .quote-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: top center;
+            border: 2px solid #0bb7d9;
+            padding: 2px;
+        }
+        .quote-author strong {
+            display: block;
+            color: #0bb7d9;
+        }
+        .quote-author small {
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-balance-scale me-2"></i>İnsan Hakları</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="bildirge.html"><i class="fas fa-scroll me-1"></i>İnsan Hakları Bildirgesi</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-hands-helping me-1"></i>İnsan Hakları
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="kadın-hakları.html"><i class="fas fa-female me-2"></i>Kadın Hakları</a></li>
+                            <li><a class="dropdown-item" href="çocukhakları.html"><i class="fas fa-child me-2"></i>Çocuk Hakları</a></li>
+                            <li><a class="dropdown-item" href="ifadeozgurlugu.html"><i class="fas fa-comments me-2"></i>İfade Özgürlüğü</a></li>
+                            <li><a class="dropdown-item" href="Mülteci-hakları.html"><i class="fas fa-globe me-2"></i>Mülteci Hakları</a></li>
+                            <li><a class="dropdown-item" href="savas-sivil-haklar.html"><i class="fas fa-shield-alt me-2"></i>Savaş ve Sivil Haklar</a></li>
+                            <li><a class="dropdown-item" href="adaletvehukuk.html"><i class="fas fa-gavel me-2"></i>Adalet ve Hukuk</a></li>
+                            <li><a class="dropdown-item" href="engellihakları.html"><i class="fas fa-wheelchair me-2"></i>Engelli Hakları</a></li>
+                            <li><a class="dropdown-item" href="Eğitim ve sağlık.html"><i class="fas fa-graduation-cap me-2"></i>Eğitim ve Sağlık</a></li>
+                            <li><a class="dropdown-item" href="baris-uzlasi.html"><i class="fas fa-dove me-2"></i>Barış ve Uzlaşı</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><i class="fas fa-info-circle me-1"></i>Hakkımızda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i>İletişim</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Header -->
+    <header class="blog-header">
+        <div class="container">
+            <h1 class="display-3"><i class="fas fa-dove me-3"></i>Barış ve Uzlaşı</h1>
+            <p class="lead">Barış ve uzlaşı, birbirini tamamlayan kavramlardır. Barış, toplumun genel bir uyum ve huzur içinde yaşamasını ifade ederken, uzlaşı bu uyumun sağlanmasında ve devam ettirilmesinde önemli bir rol oynar. Her iki kavram da bireyler, gruplar ve hatta uluslar arasındaki ilişkilerde çatışmaları azaltmayı, anlayışı artırmayı ve karşılıklı fayda sağlayacak çözümler üretmeyi hedefler. Uzlaşı olmadan sürdürülebilir bir barış ortamı kurmak ve bunu kalıcı hale getirmek zordur. Bu nedenle, barış ve uzlaşı, sosyal hayatın ve uluslararası ilişkilerin temel taşları olarak görülmelidir. Toplumlar, ancak barış ve uzlaşı anlayışını benimseyerek daha adil, eşitlikçi ve uyumlu bir yaşam inşa edebilir.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <div class="row">
+            <!-- Blog Content -->
+            <div class="col-lg-8">
+                <!-- Giriş Bölümü -->
+                <article class="blog-post mb-5">
+                    <h2 class="mb-4">Barış ve Uzlaşı: İnsanlığın Ortak Özlemi</h2>
+                    <div class="row mb-4">
+                        <div class="col-md-8">
+                            <p class="lead">Barış, bireyler, gruplar veya toplumlar arasında uyumlu ve şiddetsiz bir yaşam durumudur. Savaşın, çatışmanın ve anlaşmazlıkların olmadığı bir hali ifade eder. Barış, sadece fiziksel çatışmaların sona ermesini değil, aynı zamanda adalet, eşitlik, karşılıklı saygı ve hoşgörünün olduğu bir toplumsal düzeni içerir. Hem bireysel hem de toplumsal düzeyde gerçekleşebilir ve genellikle sürdürülebilir kalkınma, insan hakları ve sosyal adaletle ilişkilidir.</p>
+
+                             <p class="lead">   Uzlaşı (ya da uzlaşma), taraflar arasında var olan anlaşmazlıkların ya da çatışmaların, karşılıklı diyalog ve müzakere yoluyla çözülmesi sürecidir. Uzlaşı, tarafların birbirini anlamasını, hoşgörü göstermesini ve ortak bir zeminde buluşmasını hedefler. Bu süreçte genellikle taviz verme, empati kurma ve orta yol bulma gibi yaklaşımlar ön plandadır.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <img src="images/güvercin.png" alt="Barış Güvercini" class="img-fluid rounded shadow-sm">
+                        </div>
+                    </div>
+ 
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <h3 class="h4">Barışın Temel Unsurları</h3>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Sosyal Adalet:</strong> Toplumun tüm kesimlerinin eşit haklara sahip olması
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Ekonomik Refah:</strong> Adil gelir dağılımı ve sürdürülebilir kalkınma
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Kültürel Harmoni:</strong> Farklı kültürlerin bir arada yaşayabilmesi
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Eğitim:</strong> Barış kültürünün yaygınlaştırılması
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Diyalog:</strong> Toplumlar arası iletişimin güçlendirilmesi
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4>Dünyada Barış İstatistikleri</h4>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2">
+                                            <i class="fas fa-globe text-primary me-2"></i>
+                                            <strong>İskandinav Ülkeleri:</strong> Dünya Barış Endeksi'nde ilk sıralarda
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-handshake text-success me-2"></i>
+                                            <strong>Yeni Zelanda:</strong> Sosyal uyum oranı %85
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-balance-scale text-info me-2"></i>
+                                            <strong>İzlanda:</strong> Suç oranı en düşük ülkelerden biri
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-users text-warning me-2"></i>
+                                            <strong>Japonya:</strong> Toplumsal güven endeksi %78
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-heart text-danger me-2"></i>
+                                            <strong>Kanada:</strong> Kültürlerarası uyum oranı %82
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-university text-primary me-2"></i>
+                                            <strong>İsviçre:</strong> Demokrasi endeksi puanı 9.8/10
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-hands-helping text-success me-2"></i>
+                                            <strong>Hollanda:</strong> Sosyal katılım oranı %76
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                   
+                <!-- Dünya'da Önemli Barış Süreçleri -->
+                <article class="blog-post mb-5">
+                    <h2 class="mb-4">Dünya'da Önemli Barış Süreçleri</h2>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="images/Mandela.jpeg" alt="Nelson Mandela" class="img-fluid rounded mb-3">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Güney Afrika ve Apartheid'in Sonu</h3>
+                                    <p class="text-muted">1990-1994</p>
+                                    <p>Nelson Mandela'nın liderliğindeki süreç, modern tarihin en başarılı barış örneklerinden biridir. 27 yıl hapiste kalan Mandela, serbest bırakıldıktan sonra ülkesini barışçıl bir şekilde dönüştürmeyi başardı.</p>
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h5>Önemli Aşamalar</h5>
+                                            <ul>
+                                                <li>1990: Mandela'nın serbest bırakılması</li>
+                                                <li>1991: Çok partili müzakerelerin başlaması</li>
+                                                <li>1994: İlk demokratik seçimler</li>
+                                                <li>1996: Hakikat ve Uzlaşma Komisyonu</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="images/Kuzey İrlanda Barış Süreci.jpg" alt="Kuzey İrlanda Barış Süreci" class="img-fluid rounded mb-3">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Kuzey İrlanda Barış Süreci</h3>
+                                    <p class="text-muted">1998</p>
+                                    <p>Hayırlı Cuma Anlaşması, 30 yılı aşkın süren çatışmaların ardından barışın nasıl sağlanabileceğinin önemli bir örneğidir.</p>
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h5>Anlaşmanın Ana Noktaları</h5>
+                                            <ul>
+                                                <li>Güç paylaşımına dayalı yönetim</li>
+                                                <li>Silahsızlanma süreci</li>
+                                                <li>Polis reformu</li>
+                                                <li>İnsan hakları garantileri</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="images/Kolombiya Barış Süreci.jpeg" alt="Kolombiya Barış Süreci" class="img-fluid rounded mb-3">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Kolombiya Barış Anlaşması</h3>
+                                    <p class="text-muted">2016</p>
+                                    <p>52 yıl süren iç savaşın ardından imzalanan barış anlaşması, Latin Amerika'nın en uzun süren çatışmasını sona erdirdi.</p>
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h5>Barış Sürecinin Kazanımları</h5>
+                                            <ul>
+                                                <li>13,000'den fazla savaşçının silah bırakması</li>
+                                                <li>Mağdurlar için tazminat programı</li>
+                                                <li>Kırsal kalkınma projeleri</li>
+                                                <li>Politik katılım garantileri</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                 <!-- Önemli Kişilerin Sözleri -->
+                 <div class="quotes-section my-5">
+                    <h3 class="text-center mb-4">Barış Üzerine Söylenmiş Sözler</h3>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Yurtta Sulh, Cihanda Sulh</p>
+                                    <footer class="quote-author">
+                                        <img src="images/Atatürk.jpeg" alt="Atatürk" class="author-img">
+                                        <div>
+                                            <strong>Mustafa Kemal Atatürk</strong>
+                                            <small class="d-block">Türkiye Cumhuriyeti'nin Kurucusu</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Barışın bedelini ödemek, savaşın bedelini ödemekten her zaman daha ucuzdur.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/Mandela.jpeg" alt="Nelson Mandela" class="author-img">
+                                        <div>
+                                            <strong>Nelson Mandela</strong>
+                                            <small class="d-block">Nobel Barış Ödülü Sahibi</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Barış, sadece anlaşmalarla değil, insanların kalplerinde başlar.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/Gandi.jpeg" alt="Mahatma Gandhi" class="author-img">
+                                        <div>
+                                            <strong>Mahatma Gandhi</strong>
+                                            <small class="d-block">Barış ve Özgürlük Savunucusu</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Barış içinde yaşamak istiyorsanız, düşmanlarınızı dinlemeyi öğrenin.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/DalaiLama.jpeg" alt="Dalai Lama" class="author-img">
+                                        <div>
+                                            <strong>Dalai Lama</strong>
+                                            <small class="d-block">Tibet'in Ruhani Lideri</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Barış, sadece bir hedef değil, sürekli çaba gerektiren bir süreçtir.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/KofiAnnan.jpeg" alt="Kofi Annan" class="author-img">
+                                        <div>
+                                            <strong>Kofi Annan</strong>
+                                            <small class="d-block">Eski BM Genel Sekreteri</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Türkiye'de Barış Çalışmaları -->
+                <article class="blog-post mb-5">
+                    <h2 class="mb-4">Türkiye'de Barış Çalışmaları</h2>
+
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="images/Lozan Barış Antlaşması.jpg" alt="Lozan Barış Antlaşması" class="img-fluid rounded mb-3">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Cumhuriyet Dönemi</h3>
+                                    <p>Türkiye Cumhuriyeti'nin kuruluşundan itibaren barış, devletin temel ilkelerinden biri olmuştur.</p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h4 class="h5">Önemli Antlaşmalar</h4>
+                                            <ul>
+                                                <li><strong>Lozan Barış Antlaşması (1923)</strong>
+                                                    <ul>
+                                                        <li>Türkiye'nin bağımsızlığının tanınması</li>
+                                                        <li>Sınırların belirlenmesi</li>
+                                                        <li>Azınlık hakları</li>
+                                                    </ul>
+                                                </li>
+                                                <li><strong>Montrö Boğazlar Sözleşmesi (1936)</strong>
+                                                    <ul>
+                                                        <li>Boğazlarda egemenlik hakları</li>
+                                                        <li>Barışçıl geçiş rejimi</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h4 class="h5">Bölgesel İşbirlikleri</h4>
+                                            <ul>
+                                                <li><strong>Balkan Paktı (1934)</strong>
+                                                    <ul>
+                                                        <li>Bölgesel güvenlik</li>
+                                                        <li>Ekonomik işbirliği</li>
+                                                    </ul>
+                                                </li>
+                                                <li><strong>Sadabad Paktı (1937)</strong>
+                                                    <ul>
+                                                        <li>Orta Doğu'da barış</li>
+                                                        <li>Sınır güvenliği</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="images/Modern Barış Çalışmaları.jpg" alt="Modern Barış Çalışmaları" class="img-fluid rounded mb-3">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Modern Dönem Barış Çalışmaları</h3>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h4 class="h5">Akademik Çalışmalar</h4>
+                                            <ul>
+                                                <li>Barış çalışmaları merkezleri
+                                                    <ul>
+                                                        <li>Araştırma projeleri</li>
+                                                        <li>Uluslararası işbirlikleri</li>
+                                                        <li>Akademik yayınlar</li>
+                                                    </ul>
+                                                </li>
+                                                <li>Konferans ve sempozyumlar
+                                                    <ul>
+                                                        <li>Ulusal buluşmalar</li>
+                                                        <li>Uluslararası kongreler</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h4 class="h5">Sivil Toplum Faaliyetleri</h4>
+                                            <ul>
+                                                <li>Barış eğitimi projeleri
+                                                    <ul>
+                                                        <li>Okul programları</li>
+                                                        <li>Gençlik kampları</li>
+                                                    </ul>
+                                                </li>
+                                                <li>Kültürlerarası diyalog
+                                                    <ul>
+                                                        <li>Sanat etkinlikleri</li>
+                                                        <li>Kültür festivalleri</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Barışın Geleceği -->
+                <article class="blog-post mb-5">
+                    <h2 class="mb-4">Barışın Geleceği: Yeni Yaklaşımlar</h2>
+                    
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <img src="images/Barışın Geleceği.jpeg" alt="Barışın Geleceği" class="img-fluid rounded mb-3">
+                            <div class="alert alert-info">
+                                <h4 class="alert-heading">Sürdürülebilir Barış İçin Öneriler</h4>
+                                <p>Modern dünyada barışı korumak ve geliştirmek için yeni yaklaşımlar:</p>
+                                <ul class="mb-0">
+                                    <li>Teknolojinin barış için kullanımı
+                                        <ul>
+                                            <li>Sosyal medya platformları</li>
+                                            <li>Yapay zeka uygulamaları</li>
+                                            <li>Dijital diplomasi</li>
+                                        </ul>
+                                    </li>
+                                    <li>Çevre ve iklim işbirliği
+                                        <ul>
+                                            <li>Ortak projeler</li>
+                                            <li>Sürdürülebilir kalkınma</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h4>Gelecek Nesiller İçin Barış</h4>
+                                    <p>Barış kültürünün geliştirilmesi için önemli adımlar:</p>
+                                    <ul>
+                                        <li>Eğitim programları
+                                            <ul>
+                                                <li>Okul müfredatı</li>
+                                                <li>Öğretmen eğitimi</li>
+                                                <li>Dijital kaynaklar</li>
+                                            </ul>
+                                        </li>
+                                        <li>Gençlik projeleri
+                                            <ul>
+                                                <li>Liderlik programları</li>
+                                                <li>Uluslararası değişimler</li>
+                                                <li>Barış elçileri</li>
+                                            </ul>
+                                        </li>
+                                        <li>Kültürel etkinlikler
+                                            <ul>
+                                                <li>Sanat festivalleri</li>
+                                                <li>Spor organizasyonları</li>
+                                                <li>Müzik etkinlikleri</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="position-sticky" style="top: 2rem;">
+                    <!-- Önemli Kaynaklar -->
+                    <div class="card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="h5 mb-0"><i class="fas fa-book me-2"></i>Önemli Kaynaklar</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <a href="https://unic.un.org/aroundworld/unics/common/documents/publications/60ways/ankara_60Ways_Turkish.pdf" class="text-decoration-none">
+                                        <i class="fas fa-external-link-alt me-2"></i>BM Barış Çalışmaları
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="https://www.sipri.org" class="text-decoration-none">
+                                        <i class="fas fa-external-link-alt me-2"></i>Barış Araştırmaları Enstitüsü
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.un.org" class="text-decoration-none">
+                                        <i class="fas fa-external-link-alt me-2"></i>Birleşmiş Milletler
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- İstatistikler -->
+                    <div class="card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="h5 mb-0"><i class="fas fa-chart-bar me-2"></i>Barış İstatistikleri</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="list-group">
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">1</span><i class="fas fa-globe text-primary"></i> İzlanda</span>
+                                            <span class="badge bg-success">1.107</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">2</span><i class="fas fa-heart text-danger"></i> Yeni Zelanda</span>
+                                            <span class="badge bg-success">1.269</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">3</span><i class="fas fa-dove text-info"></i> İrlanda</span>
+                                            <span class="badge bg-success">1.288</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">4</span><i class="fas fa-balance-scale"></i> Danimarka</span>
+                                            <span class="badge bg-success">1.296</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">5</span><i class="fas fa-university"></i> Avusturya</span>
+                                            <span class="badge bg-success">1.300</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">6</span><i class="fas fa-handshake"></i> Portekiz</span>
+                                            <span class="badge bg-success">1.301</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">7</span><i class="fas fa-users"></i> Slovenya</span>
+                                            <span class="badge bg-success">1.316</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">8</span><i class="fas fa-shield-alt"></i> Çek Cumhuriyeti</span>
+                                            <span class="badge bg-success">1.318</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">9</span><i class="fas fa-hands-helping"></i> Singapur</span>
+                                            <span class="badge bg-success">1.326</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">10</span><i class="fas fa-graduation-cap"></i> Japonya</span>
+                                            <span class="badge bg-success">1.336</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="list-group">
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">11</span><i class="fas fa-mountain"></i> İsviçre</span>
+                                            <span class="badge bg-success">1.357</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">12</span><i class="fas fa-leaf"></i> Kanada</span>
+                                            <span class="badge bg-success">1.389</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">13</span><i class="fas fa-sun"></i> Hong Kong</span>
+                                            <span class="badge bg-success">1.403</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">14</span><i class="fas fa-tree"></i> Malezya</span>
+                                            <span class="badge bg-success">1.471</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">15</span><i class="fas fa-star"></i> Hollanda</span>
+                                            <span class="badge bg-success">1.494</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">16</span><i class="fas fa-flag"></i> Belçika</span>
+                                            <span class="badge bg-success">1.496</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">17</span><i class="fas fa-chess-rook"></i> Norveç</span>
+                                            <span class="badge bg-success">1.498</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">18</span><i class="fas fa-landmark"></i> Finlandiya</span>
+                                            <span class="badge bg-success">1.501</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span><span class="badge bg-primary me-2">19</span><i class="fas fa-monument"></i> Slovakya</span>
+                                            <span class="badge bg-success">1.508</span>
+                                        </div>
+                                        <div class="list-group-item d-flex justify-content-between align-items-center bg-light border-2 border-primary">
+                                            <span class="fw-bold"><span class="badge bg-primary me-2">145</span><i class="fas fa-star-and-crescent text-danger"></i> Türkiye</span>
+                                            <span class="badge bg-primary">3.024</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="alert alert-info mt-3">
+                                <i class="fas fa-info-circle me-2"></i>
+                                <small>Not: Puanlar Küresel Barış İndeksi'ne göredir. Düşük puan daha yüksek barış seviyesini gösterir.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Erişilebilirlik Butonu ve Menüsü -->
+<div class="accessibility-button" id="accessibilityBtn">
+    <i class="fas fa-universal-access"></i>
+</div>
+
+<div class="accessibility-menu" id="accessibilityMenu">
+    <div class="menu-grid">
+        <div class="menu-item" id="fontSizeBtn">
+            <i class="fas fa-text-height"></i>
+            <span>Büyük Metin</span>
+        </div>
+        <div class="menu-item" id="contrastBtn">
+            <i class="fas fa-adjust"></i>
+            <span>Kontrast</span>
+        </div>
+        <div class="menu-item" id="dyslexiaBtn">
+            <i class="fas fa-font"></i>
+            <span>Disleksi Dostu</span>
+        </div>
+        <div class="menu-item" id="lineHeightBtn">
+            <i class="fas fa-arrows-alt-v"></i>
+            <span>Satır Yüksekliği</span>
+        </div>
+        <div class="menu-item" id="alignLeftBtn">
+            <i class="fas fa-align-left"></i>
+            <span>Sola Hizala</span>
+        </div>
+        <div class="menu-item" id="alignCenterBtn">
+            <i class="fas fa-align-center"></i>
+            <span>Ortala</span>
+        </div>
+        <div class="menu-item" id="alignRightBtn">
+            <i class="fas fa-align-right"></i>
+            <span>Sağa Hizala</span>
+        </div>
+        <div class="menu-item" id="alignJustifyBtn">
+            <i class="fas fa-align-justify"></i>
+            <span>İki Yana Yasla</span>
+        </div>
+        <div class="menu-item" id="readingBtn">
+            <i class="fas fa-book-reader"></i>
+            <span>Metin Okuma</span>
+        </div>
+        <div class="menu-item" id="cursorBtn">
+            <i class="fas fa-mouse-pointer"></i>
+            <span>İmleç</span>
+        </div>
+        <div class="menu-item" id="animationBtn">
+            <i class="fas fa-film"></i>
+            <span>Animasyonları Durdur</span>
+        </div>
+        <div class="menu-item" id="resetBtn">
+            <i class="fas fa-undo"></i>
+            <span>Sıfırla</span>
+        </div>
+    </div>
+</div>
+
+<!-- Text-to-Speech Durumu -->
+<div id="ttsStatus" class="tts-status" style="display: none;">
+    Metin Okuma: <span id="ttsStatusText">Kapalı</span>
+</div>
+    <!-- Footer -->
+    <footer class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="footer-title"><i class="fas fa-heart me-2"></i>İnsan Hakları Projesi</h5>
+                    <p class="text-light">Hi-Kod 5. Dönem Bitirme Projesi kapsamında insan hakları konusunda farkındalık yaratmayı amaçlıyoruz.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title"><i class="fas fa-envelope me-2"></i>Bültene Abone Ol</h5>
+                    <p class="text-light">Güncel gelişmeler ve haberler için bültenimize abone olun.</p>
+                    <form class="subscribe-form" id="subscribeForm">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="E-posta adresiniz" required>
+                            <button class="btn btn-primary" type="submit">Abone Ol</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title text-center"><i class="fas fa-share-alt me-2"></i>Bizi Takip Edin</h5>
+                    <div class="social-links">
+                        <a href="https://github.com/kemalalperakdnz/goldbees_insanhaklar" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="copyright">Gold Bees - Hi-Kod 5. Dönem. Tüm hakları saklıdır.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

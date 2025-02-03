@@ -1,0 +1,800 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çocuk Hakları</title>
+    <link rel="icon" href="images/ikon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .blog-header {
+            background: #ed472a;
+            padding: 100px 0 80px;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .blog-post {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            padding: 20px;
+            border-left: 3px solid #ed472a;
+            margin-bottom: 20px;
+            position: relative;
+            background: #f8f9fa;
+            text-align: left;
+        }
+
+        .quote-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 5px solid #ed472a;
+            margin: 0 auto;
+        }
+
+        .quotes-section {
+            padding: 2rem 0;
+        }
+
+        .quote-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+            .quote-card:hover {
+                transform: translateY(-5px);
+            }
+
+        .quote-icon {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background: #ed472a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .quote-icon i {
+                color: white;
+                font-size: 1.2rem;
+            }
+
+        .quote-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .quote-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: top center;
+            border: 2px solid #ed472a;
+            padding: 2px;
+        }
+
+        .quote-author strong {
+            display: block;
+            color: #ed472a;
+        }
+
+        .quote-author small {
+            color: #6c757d;
+        }
+                /* Genel stil ayarları */
+        .grafik {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .grafik .container {
+            width: 95%;
+            max-width: 1400px;
+            padding: 20px;
+            margin-bottom: 100px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .grafik h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .grafik .chart {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: 500px; /* Yüksekliği arttırdık */
+        }
+
+        .grafik h2 {
+            color: #34495e;
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .grafik canvas {
+            display: block;
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        /* Tooltip ve diğer grafikleri güzelleştiren ayarlar */
+        .grafik.chartjs-tooltip {
+            background-color: rgba(0, 0, 0, 0.7) !important;
+            color: white !important;
+            font-size: 1.2rem;
+            padding: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-balance-scale me-2"></i>İnsan Hakları</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="bildirge.html"><i class="fas fa-scroll me-1"></i>İnsan Hakları Bildirgesi</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-hands-helping me-1"></i>İnsan Hakları
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="kadın-hakları.html"><i class="fas fa-female me-2"></i>Kadın Hakları</a></li>
+                            <li><a class="dropdown-item" href="çocukhakları.html"><i class="fas fa-child me-2"></i>Çocuk Hakları</a></li>
+                            <li><a class="dropdown-item" href="ifadeozgurlugu.html"><i class="fas fa-comments me-2"></i>İfade Özgürlüğü</a></li>
+                            <li><a class="dropdown-item" href="Mülteci-hakları.html"><i class="fas fa-globe me-2"></i>Mülteci Hakları</a></li>
+                            <li><a class="dropdown-item" href="savas-sivil-haklar.html"><i class="fas fa-shield-alt me-2"></i>Savaş ve Sivil Haklar</a></li>
+                            <li><a class="dropdown-item" href="adaletvehukuk.html"><i class="fas fa-gavel me-2"></i>Adalet ve Hukuk</a></li>
+                            <li><a class="dropdown-item" href="engellihakları.html"><i class="fas fa-wheelchair me-2"></i>Engelli Hakları</a></li>
+                            <li><a class="dropdown-item" href="Eğitim ve sağlık.html"><i class="fas fa-graduation-cap me-2"></i>Eğitim ve Sağlık</a></li>
+                            <li><a class="dropdown-item" href="baris-uzlasi.html"><i class="fas fa-dove me-2"></i>Barış ve Uzlaşı</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><i class="fas fa-info-circle me-1"></i>Hakkımızda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i>İletişim</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Header -->
+    <header class="blog-header">
+        <div class="container">
+            <h1 class="display-3"><i class="fas fa-child me-2"></i>Çocuk Hakları</h1>
+            <p class="lead">Çocuk hakları, her çocuğun doğuştan sahip olduğu ve evrensel olarak tanınan haklardır. Bu haklar, çocukların yaşama, gelişme, korunma ve katılım gibi temel ihtiyaçlarını ve özgürlüklerini kapsar. Çocuk hakları, Birleşmiş Milletler'in 20 Kasım 1989 tarihinde kabul ettiği Çocuk Haklarına Dair Sözleşme ile uluslararası alanda güvence altına alınmıştır. Bu sözleşme, çocukların fiziksel, zihinsel ve sosyal gelişimlerini desteklemeyi, onları her türlü istismar ve ihmalden korumayı ve toplumsal yaşama aktif katılımlarını sağlamayı amaçlar. Çocuk haklarının korunması ve geliştirilmesi, toplumların geleceği için hayati öneme sahiptir.</div>
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <div class="row justify-content-center">
+            <!-- Blog Content -->
+            <div class="col-lg-10">
+                <!-- Giriş Bölümü -->
+                <article class="blog-post mb-5">
+                    <h2 class="mb-4" style="text-align: left;">Çocuk Hakları</h2>
+                    <div class="row mb-4">
+                        <div class="col-md-8">
+                            <p class="lead" style="text-align: left;">
+                                Çocuk Hakları, çocukların topluma eşit bir şekilde katılmalarını, her türlü ayrımcılıktan korunmalarını ve kendilerini özgürce ifade edebilmelerini sağlamayı amaçlayan haklardır. Bu haklar, çocukların fiziksel, zihinsel, duygusal ve sosyal gelişimlerini desteklemek ve yaşam kalitelerini artırmak için kritik öneme sahiptir. Çocuklar, yalnızca bugünün bireyleri değil, aynı zamanda geleceğin yetişkinleri, liderleri ve dünyanın gelişimine katkıda bulunacak önemli aktörleridir. Onların sağlıklı, eğitimli ve özgüvenli bireyler olarak yetişmesi, toplumların ilerlemesi ve sürdürülebilir bir dünya inşa edilmesi için vazgeçilmezdir.
+                            </p>
+                            <p class="lead" style="text-align: left;">
+                                Çocukların topluma katılımı, yalnızca temel ihtiyaçların karşılanması değil, aynı zamanda eğitim, sağlık, barınma ve sosyal yaşamda fırsat eşitliğinin sağlanmasıyla mümkün olur. Çocuk hakları, her çocuğun insan onuruna yakışır bir şekilde yaşamasını, kendini geliştirmesini ve toplumda eşit haklara sahip olmasını temin eder. Bu haklar, çocukların geleceğe güvenle bakmalarını, yaratıcılıklarını ortaya koymalarını ve toplumsal yaşama aktif olarak katılmalarını sağlar. Çocukların potansiyelini gerçekleştirmesi, yalnızca onların bireysel mutluluğu için değil, tüm insanlığın ilerlemesi için de büyük bir adımdır.
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <img src="images/çocukhakları.jpg.jpg" alt="Çocuk Hakları" class="img-fluid rounded shadow-sm">
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-6 mx-auto">
+                            <h3 class="h4 text-center">Çocuk Haklarının Temel Unsurları</h3>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item text-right">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Yaşama Hakkı:</strong> Her çocuğun temel yaşam hakkı vardır ve devletler bu hakkı korumakla yükümlüdür.
+                                </li>
+                                <li class="list-group-item text-right">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Gelişme Hakkı:</strong> Çocukların fiziksel, zihinsel, duygusal ve sosyal gelişimlerini destekleyecek imkanlara erişim hakkı vardır.
+                                </li>
+                                <li class="list-group-item text-right">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Korunma Hakkı:</strong> Çocuklar, her türlü istismar, şiddet, ihmal ve sömürüden korunma hakkına sahiptir.
+                                </li>
+                                <li class="list-group-item text-right">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Katılım Hakkı:</strong> Çocuklar, kendilerini ilgilendiren konularda görüşlerini ifade etme ve bu görüşlerin dikkate alınmasını talep etme hakkına sahiptir.
+                                </li>
+                                <li class="list-group-item text-right">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Eğitim Hakkı:</strong> Her çocuk, kaliteli ve ücretsiz eğitime erişim hakkına sahiptir.
+                                </li>
+                                <li class="list-group-item text-right">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Eşitlik Hakkı:</strong> Her çocuk, ırk, cinsiyet, din veya sosyal statüye bakılmaksızın eşit haklara sahiptir.
+                                </li>
+                                <li class="list-group-item text-right">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Özel Koruma:</strong> Engelli çocuklar, mülteci çocuklar ve dezavantajlı gruplardaki çocuklar özel koruma ve destek hakkına sahiptir.
+                                </li>
+                                <li class="list-group-item text-right">
+                                    <i class="fas fa-check text-success me-2"></i>
+                                    <strong>Sağlık Hakkı:</strong> Çocuklar, temel sağlık hizmetlerine erişim ve sağlıklı bir yaşam sürme hakkına sahiptir.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4>Çocuk Hakları İstatistikleri</h4>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2">
+                                            <i class="fas fa-globe text-primary me-2"></i>
+                                            <strong>İskandinav Ülkeleri:</strong> Finlandiya'da çocukların eğitime erişim oranı %99'un üzerindedir ve çocuk yoksulluğu oranı %5'in altındadır.
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-balance-scale text-info me-2"></i>
+                                            <strong>Amerika Birleşik Devletleri:</strong> Çocuk yoksulluğu oranı %16 civarındadır
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-users text-warning me-2"></i>
+                                            <strong>Birleşik Krallık:</strong> Çocukların %95'i ortaöğretim eğitimini tamamlar
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-university text-primary me-2"></i>
+                                            <strong>Almanya:</strong> Çocuk yoksulluğu oranı %10'un altındadır ve eğitime erişim oranı %98'dir.
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-gavel text-danger me-2"></i>
+                                            <strong>Avustralya:</strong>Çocuk yoksulluğu oranı %13 civarındadır ve eğitime erişim oranı %95'in üzerindedir.
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-undo text-warning me-2"></i>
+                                            <strong>Nijerya:</strong> Çocukların %70'inden fazlası yoksulluk sınırının altında yaşıyor ve eğitime erişim oranı oldukça düşük.
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-child text-danger me-2"></i>
+                                            <strong>Hindistan:</strong> Yaklaşık 10 milyon çocuk işçi bulunuyor ve çocukların eğitime erişimi kısıtlı.
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-users text-warning me-2"></i>
+                                            <strong>Somali:</strong> 5 yaş altı çocuk ölüm oranı 1.000 çocukta 72 gibi yüksek bir seviyede.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- grafik-->
+                <div class="grafik">
+                    <div class="container mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="text-center mb-4">Ülkelere Göre Çocuk Cinayet Oranı (2015)</h3>
+                                <canvas id="chartChildMurder"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dünya'da Önemli Süreçler -->
+                <article class="blog-post mb-5">
+                    <h2 class="mb-4">Dünya'da Önemli Çocuk Hakları Süreçleri</h2>
+
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="images/bm.jpg" alt="BM" class="img-fluid rounded mb-3">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Birleşmiş Milletler</h3>
+                                    <p></p>
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h5>Önemli Aşamalar</h5>
+                                            <ul>
+                                                <li>1990: Dünya Çocuk Zirvesi</li>
+                                                <li>2000: Binyıl Kalkınma Hedefleri (MDGs)</li>
+                                                <li>2015: Sürdürülebilir Kalkınma Hedefleri (SDGs)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="images/hakihlali.jpeg" alt="Hak İhlali" class="img-fluid rounded mb-3">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Çocuk Hakları İhlallerine Karşı Mücadele</h3>
+                                    <p class="text-muted">1990</p>
+                                    <p>Dünyada çocuk hakları, son yüzyılda önemli ilerlemeler kaydetmiş olsa da hala birçok zorlukla karşı karşıya. BM, uluslararası kuruluşlar, devletler ve sivil toplum örgütleri, çocuk haklarını korumak ve geliştirmek için çalışmalarını sürdürüyor. Çocukların haklarının korunması, yalnızca onların bireysel mutluluğu için değil, aynı zamanda daha adil ve sürdürülebilir bir dünya inşa etmek için de büyük önem taşıyor. .</p>
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h5>Önemli Konular</h5>
+                                            <ul>
+                                                <li>Çocuk İşçiliği: ILO'nun 182 No'lu Sözleşmesi, en kötü biçimlerdeki çocuk işçiliğini yasakladı. Ancak dünya genelinde hala 160 milyon çocuk işçi bulunuyor.</li>
+                                                <li>Çocuk Askerler: BM, çocukların silahlı çatışmalarda kullanılmasını önlemek için çalışmalar yürütüyor. Ancak hala birçok ülkede çocuk asker sorunu devam ediyor.</li>
+                                                <li>Erken Yaşta Evlilikler: UNICEF ve diğer kuruluşlar, erken yaşta evlilikleri önlemek için projeler yürütüyor. Ancak özellikle Afrika ve Güney Asya'da bu sorun hala yaygın.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                       
+                    </div>
+                </article>
+
+
+                <!-- Önemli Kişilerin Sözleri -->
+                <div class="quotes-section my-5">
+                    <h3 class="text-center mb-4">Çocuk Hakları Üzerine Söylenmiş Sözler</h3>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">
+                                        Çocuklar dünyanın geleceğidir. Onlara sevgi, eğitim ve koruma sağlamak hepimizin görevidir.
+                                    </p>
+                                    <footer class="quote-author">
+                                        <img src="images/audreyhepburn.jpeg" alt="Audrey Hepburn" class="author-img">
+                                        <div>
+                                            <strong>Audrey Hepburn</strong>
+                                            <small class="d-block">UNICEF İyi Niyet Elçisi</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Bir çocuk, bir öğretmen, bir kitap ve bir kalem tüm dünyayı değiştirebilir.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/malala.jpeg" alt="Malala Yousafzai" class="author-img">
+                                        <div>
+                                            <strong>Malala Yousafzai</strong>
+                                            <small class="d-block"> Nobel Barış Ödülü Sahibi</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Çocuklar, büyüklerin küçük kopyaları değildir. Onların kendi düşünceleri, duyguları ve hakları vardır.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/janusz.jpeg" alt="Janusz Korczak" class="author-img">
+                                        <div>
+                                            <strong>Janusz Korczak</strong>
+                                            <small class="d-block">Çocuk Hakları Öncüsü</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Çocuklara yapılan her şey, insanlığa yapılan bir yatırımdır.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/beecher.jpeg" alt="Henry Ward Beecher" class="author-img">
+                                        <div>
+                                            <strong>Henry Ward Beecher</strong>
+                                            <small class="d-block">Ünlü Kongregasyonal papazı, kölelik karşıtı ve sosyal reformcu</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Çocuklar geleceğimizin güvencesi, yaşama sevincimizdir. Bugünün çocuğunu yarının büyüğü olarak yetiştirmek hepimizin insanlık görevidir.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/atatürk.jpg" alt="Mustafa Kemal ATATÜRK" class="author-img">
+                                        <div>
+                                            <strong>Mustafa Kemal ATATÜRK</strong>
+                                            <small class="d-block">Türkiye Cumhuriyeti'nin Kurucusu</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>                      
+                        <div class="col-md-6">
+                            <div class="quote-card h-100">
+                                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <blockquote class="mb-0">
+                                    <p class="quote-text">Çocuklar dünyanın en değerli hazinesidir. Onları korumak ve sevmek, hepimizin sorumluluğudur.</p>
+                                    <footer class="quote-author">
+                                        <img src="images/diana.jpg" alt="Prenses Diana" class="author-img">
+                                        <div>
+                                            <strong>Diana</strong>
+                                            <small class="d-block">Galler Prensesi</small>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Türkiye'deki Çocuk Hakları Çalışmaları -->
+                <article class="blog-post mb-5">
+                    <h2 class="mb-4">Türkiye'de Çocuk Hakları ve Hukuk</h2>
+
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="images/çocukhaklarıtr.jpg" alt="Çocuk Hakları TR" class="img-fluid rounded mb-3">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Çocuk Haklarının Temelleri</h3>
+                                    <p>Türkiye'de çocuk hakları, ulusal yasalar ve uluslararası sözleşmelerle korunmaktadır.</p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h4 class="h5">Önemli Yasal Belgeler</h4>
+                                            <ul>
+                                                <li><strong>1924 Tevhid-i Tedrisat Kanunu:</strong> Eğitim sisteminin birleştirilmesi ve çocukların eğitim hakkının güvence altına alınması.</li>
+                                                <li><strong>1961 Anayasası:</strong> Çocukların korunması ve eğitim hakkının anayasal güvenceye alınması.</li>
+                                                <li><strong>1982 Anayasası:</strong> Çocukların korunması, eğitim ve sosyal güvenlik haklarının anayasal düzeyde güvence altına alınması.</li>
+                                                <li><strong>1995 - BM Çocuk Hakları Sözleşmesi:</strong>Türkiye'nin sözleşmeyi onaylayarak çocuk haklarını uluslararası düzeyde tanıması.</li>
+                                                <li><strong>2005 - Çocuk Koruma Kanunu (5395 Sayılı Kanun): </strong>Çocukların korunması, bakımı ve desteklenmesine yönelik kapsamlı yasal çerçeve.</li>
+                                                <li><strong>2010 Anayasa Değişikliği:</strong></li>
+                                                <li><strong>2012 - Aile ve Sosyal Politikalar Bakanlığı'nın Kurulması:</strong> Çocukların korunması ve desteklenmesine yönelik politikaların koordinasyonu.</li>
+                                                <li><strong>2013 - Çocuk İşçiliği ile Mücadele Ulusal Programı:</strong> Çocuk işçiliğinin önlenmesi ve ortadan kaldırılması için kapsamlı program.</li>
+                                                <li><strong>2018 - Çocuk İzlem Merkezleri (ÇİM):</strong> İstismara uğrayan çocukların adli süreçlerde tekrar travma yaşamaması için merkezlerin kurulması.</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h4 class="h5">Uluslararası Çocuk Hakları ve Türkiye</h4>
+                                            <ul>
+                                                <li><strong>Birleşmiş Milletler Çocuk Hakları Sözleşmesi (UNCRC):</strong> Türkiye'nin 1995'te onayladığı sözleşme, çocukların yaşama, gelişme, korunma ve katılım haklarını güvence altına alır.</li>
+                                                <li><strong>Avrupa İnsan Hakları Sözleşmesi (AİHS):</strong> Çocukların insan haklarının korunması</li>
+                                                <li><strong>Lanzarote Sözleşmesi:</strong>Çocukların cinsel istismardan korunması için uluslararası standartlar.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="images/engelsizyaşam.jpeg.jpg" alt="Engelsiz Yaşam" class="img-fluid rounded mb-3">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Modern Çocuk Hakları Çalışmaları</h3>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h4 class="h5">Çocuk Hakları Eğitim Kurumları</h4>
+                                            <ul>
+                                                <li>Üniversitelerde çocuk hakları ve sosyal hizmetler bölümleri</li>
+                                                <li>Seminer, çalıştay ve bilgilendirme projeleri</li>
+                                                <li>"Çocuk Dostu Şehirler" gibi projeler</li>
+                                                <li>Medya kampanyaları ve okul eğitim programları</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h4 class="h5">Kamusal Alanlarda Düzenlemeler</h4>
+                                            <ul>
+                                                <li>Kırsal, mülteci ve engelli çocuklar için kaynaştırma eğitimi</li>
+                                                <li>Çocuk işçiliği ile mücadele için yasal düzenlemeler ve sosyal destek programları</li>
+                                                <li>Sosyal yardım programları ve psikososyal destek hizmetleri</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                    <h4>Film Önerisi: "The Children of Heaven"</h4>
+                                    <img src="images/cennet.jpg" alt="The Children of Heaven" class="img-fluid rounded mb-3">
+                                    <p><strong>Tür:</strong> Komedi, Dram</p>
+                                    <p><strong>Özet:</strong> Cennetin Çocukları, kız kardeşinin ayakkabılarını kaybeden bir çocuğunun onları bulmak için verdiği mücadeleyi ele alıyor. İran sinemasının dikkat çekici yönetmenlerinden Majid Majidi'nin eserinde, yoksul bir aileye sahip iki kardeşin aynı çift ayakkabıyı paylaşmasının öyküsü anlatılıyor. Film, 1999 yılı En İyi Yabancı Film Oscar'ı ve Montreal Film Festivali Fipresci ve Kiliseler Birliği Jüri ödüllerinin sahibi.</p>
+                             </div>
+                        </div>
+                    </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Animasyon Önerisi: ""Coco" (Koko)"</h4>
+                             <img src="images/animasyon.jpg" alt="Coco (Koko)" class="img-fluid rounded mb-3">
+                             <p><strong>Tür:</strong> Çocuk, Aile, Fantastik</p>
+                             <p><strong>Özet:</strong>Coco, 12 yaşındaki Miguel'in ölüler diyarındaki macerasını anlatıyor. 12 yaşındaki Miguel'in en büyük kahramanı efsanevi Meksikalı gitarist Ernesto de la Cruz'dur. Ancak Cruz hayatını kaybetmiştir ve Miguel'in onunla tanışma imkanı yoktur. Her gün onun şarkılarını dinleyen Miguel günün birinde ünlü müzisyenin gitarını bulur. Ancak gitarı çalması onu bir anda Ölüler Diyarı'na götürüverir. Çıkış yolunu arayan Miguel, düzenbaz Hector'la karşılaşır ve birlikte Miguel'in aile tarihinin ardındaki gerçek hikayeyi keşfetmek için olağanüstü bir yolculuğa çıkarlar... .</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </article>
+            </div>
+        </div>
+    </main>
+
+
+
+
+
+    <!-- İstatistikler -->
+    <!-- Erişilebilirlik Butonu ve Menüsü -->
+    <div class="accessibility-button" id="accessibilityBtn">
+        <i class="fas fa-universal-access"></i>
+    </div>
+
+    <div class="accessibility-menu" id="accessibilityMenu">
+        <div class="menu-grid">
+            <div class="menu-item" id="fontSizeBtn">
+                <i class="fas fa-text-height"></i>
+                <span>Büyük Metin</span>
+            </div>
+            <div class="menu-item" id="contrastBtn">
+                <i class="fas fa-adjust"></i>
+                <span>Kontrast</span>
+            </div>
+            <div class="menu-item" id="dyslexiaBtn">
+                <i class="fas fa-font"></i>
+                <span>Disleksi Dostu</span>
+            </div>
+            <div class="menu-item" id="lineHeightBtn">
+                <i class="fas fa-arrows-alt-v"></i>
+                <span>Satır Yüksekliği</span>
+            </div>
+            <div class="menu-item" id="alignLeftBtn">
+                <i class="fas fa-align-left"></i>
+                <span>Sola Hizala</span>
+            </div>
+            <div class="menu-item" id="alignCenterBtn">
+                <i class="fas fa-align-center"></i>
+                <span>Ortala</span>
+            </div>
+            <div class="menu-item" id="alignRightBtn">
+                <i class="fas fa-align-right"></i>
+                <span>Sağa Hizala</span>
+            </div>
+            <div class="menu-item" id="alignJustifyBtn">
+                <i class="fas fa-align-justify"></i>
+                <span>İki Yana Yasla</span>
+            </div>
+            <div class="menu-item" id="readingBtn">
+                <i class="fas fa-book-reader"></i>
+                <span>Metin Okuma</span>
+            </div>
+            <div class="menu-item" id="cursorBtn">
+                <i class="fas fa-mouse-pointer"></i>
+                <span>İmleç</span>
+            </div>
+            <div class="menu-item" id="animationBtn">
+                <i class="fas fa-film"></i>
+                <span>Animasyonları Durdur</span>
+            </div>
+            <div class="menu-item" id="resetBtn">
+                <i class="fas fa-undo"></i>
+                <span>Sıfırla</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Text-to-Speech Durumu -->
+    <div id="ttsStatus" class="tts-status" style="display: none;">
+        Metin Okuma: <span id="ttsStatusText">Kapalı</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="footer-title"><i class="fas fa-heart me-2"></i>İnsan Hakları Projesi</h5>
+                    <p class="text-light">Hi-Kod 5. Dönem Bitirme Projesi kapsamında insan hakları konusunda farkındalık yaratmayı amaçlıyoruz.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title"><i class="fas fa-envelope me-2"></i>Bültene Abone Ol</h5>
+                    <p class="text-light">Güncel gelişmeler ve haberler için bültenimize abone olun.</p>
+                    <form class="subscribe-form" id="subscribeForm">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="E-posta adresiniz" required>
+                            <button class="btn btn-primary" type="submit">Abone Ol</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title text-center"><i class="fas fa-share-alt me-2"></i>Bizi Takip Edin</h5>
+                    <div class="social-links">
+                        <a href="https://github.com/kemalalperakdnz/goldbees_insanhaklar" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="copyright">Gold Bees - Hi-Kod 5. Dönem. Tüm hakları saklıdır.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const ctxChildMurder = document.getElementById('chartChildMurder').getContext('2d');
+
+        const dataChildMurder = {
+            labels: ['ABD', 'Brezilya', 'Hindistan', 'Meksika', 'Rusya', 'Avustralya', 'Sudan'],
+            datasets: [{
+                label: 'Çocuk Cinayet Oranı (2015)',
+                data: [4.0, 17, 2, 7, 2, 1, 6],  // Bu sayılar örnektir, gerçeğe uygun verilerle değiştirilmelidir
+                backgroundColor: 'rgba(54, 162, 235, 0.8)', // Mavi tonları
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 2,
+                hoverBackgroundColor: 'rgba(54, 162, 235, 1)',
+                hoverBorderColor: 'rgba(54, 162, 235, 1)',
+                barThickness: 50,  // Çubuk kalınlığını arttırdık
+                borderRadius: 8,  // Çubuk kenarlarını yuvarladık
+            }]
+        };
+
+        new Chart(ctxChildMurder, {
+            type: 'bar',
+            data: dataChildMurder,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Cinayet Oranı (100.000 kişi başına)',
+                            font: {
+                                size: 18,
+                                weight: 'bold'
+                            },
+                            color: '#2c3e50'
+                        },
+                        grid: {
+                            display: true,
+                            color: '#e0e0e0',
+                            lineWidth: 1
+                        },
+                        ticks: {
+                            font: {
+                                size: 14
+                            }
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Ülkeler',
+                            font: {
+                                size: 18,
+                                weight: 'bold'
+                            },
+                            color: '#2c3e50'
+                        },
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            },
+                            maxRotation: 45,   // X eksenindeki yazıların eğik görünmesini sağlar
+                            minRotation: 45,
+                            padding: 15       // Ülke isimlerinin sıkışmaması için aralarındaki boşluk
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        enabled: true,
+                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        footerColor: '#fff',
+                        titleFont: {
+                            size: 16,
+                            weight: 'bold'
+                        },
+                        bodyFont: {
+                            size: 14
+                        }
+                    }
+                },
+                animation: {
+                    duration: 1200, // Animasyon süresi
+                    easing: 'easeInOutQuart'
+                }
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
